@@ -108,17 +108,33 @@ Mögliche Projektionen sind:
 
 Eine Präsentation darf die geprüften Aussagen verdichten, aber keine neue Evidenz oder stärkere Gewissheit erzeugen. Änderungen an Bewertungen und Schlussfolgerungen gehören zurück in die Bestandsaufnahme und nicht ausschließlich in eine Folie.
 
-## Rolle von AGDF
+## Rolle des _AI Governance and Delivery Framework_ (AGDF)
 
-AGDF könnte den kontrollierten Rahmen für Scope, Evidenz, Freigaben und den Übergang von Erkenntnissen zu Veränderungen bereitstellen. Eine mögliche Erweiterung würde den fachlichen Ablauf der Projektbestandsaufnahme, wiederverwendbare Vorlagen und abgeleitete Ergebnisdarstellungen ergänzen.
+Die hier diskutierte Erweiterung ist als Companion Plugin für das [AI-native Governance & Delivery Framework (AGDF)](https://agdf.iself.eu/) vorgesehen. AGDF ist damit die konzeptionelle und später auch technische Voraussetzung für einen kontrollierten Inventory-Run. Das bedeutet nicht, dass jede Projektbestandsaufnahme AGDF benötigt. Es bedeutet, dass AGDF Project Inventory seine belastbaren Freigabe-, Evidenz- und Delivery-Grenzen nicht selbst neu erfinden soll.
 
-Die Verantwortungsgrenze wäre dabei:
+Die vorgesehene Verantwortungsgrenze ist:
 
 - AGDF Core bleibt verantwortlich für Gates, Freigaben, Run State, Quellen der Wahrheit, Evidenzgrenzen und kontrollierte Delivery-Übergänge.
 - AGDF Project Inventory beschreibt den spezialisierten Inventory-Workflow und seine Ergebnisartefakte.
 - Externe Systeme und spätere Connectoren liefern Evidenz, werden aber nicht automatisch zur Entscheidungs- oder Freigabeinstanz.
 
-Diese Aufteilung ist ein Vorschlag und noch kein verabschiedetes Produktdesign.
+## Warum AGDF vorausgesetzt wird
+
+Eine reine Bestandsaufnahme kann auch ohne AGDF durchgeführt werden. Der hier diskutierte Ansatz soll jedoch nicht nur Dokumente erzeugen, sondern eine nachvollziehbare Verbindung zwischen Untersuchungsumfang, Evidenz, Bewertung, menschlichen Entscheidungen und möglichen Veränderungen herstellen.
+
+Dafür soll AGDF die grundlegenden Steuerungsmechanismen bereitstellen:
+
+- kontrollierter Scope und eindeutiger Run State
+- nachvollziehbare Quellen der Wahrheit
+- sichtbare Herkunft und Reichweite von Evidenz
+- explizite Freigaben und Verantwortungsgrenzen
+- Trennung von Repository-, Laufzeit- und UAT-Nachweisen
+- kontrollierter Übergang von Findings zu Veränderungsvorhaben
+- dokumentierte Qualitäts- und Abnahmeentscheidungen
+
+Ohne eine kompatible AGDF-Installation könnten einzelne Vorlagen und Konzepte weiterhin als Orientierung dienen. Ein durch AGDF kontrollierter Inventory-Run wäre dann jedoch nicht gewährleistet. Eine spätere Implementierung soll diese Abhängigkeit deshalb sichtbar prüfen und bei fehlender oder inkompatibler AGDF-Version eindeutig abbrechen.
+
+Diese Aufteilung ist ein Vorschlag und noch kein verabschiedetes oder implementiertes Produktdesign.
 
 ## Möglicher Wert für Unternehmen
 
