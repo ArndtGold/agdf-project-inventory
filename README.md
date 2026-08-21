@@ -2,83 +2,80 @@
 
 # AGDF Project Inventory
 
-AGDF Project Inventory ist ein deutscher Diskussionsentwurf. Er beschreibt nachvollziehbare Bestandsaufnahmen von Softwareprojekten mit Hilfe von Agenten und KI.
+AGDF Project Inventory ist ein deutschsprachiger Diskussionsentwurf für nachvollziehbare Bestandsaufnahmen von Softwareprojekten mit Agenten und KI.
 
-## Dieser Diskussionsentwurf in einem Satz
+## In einem Satz
 
-Projektbestandsaufnahmen mit KI brauchen mehr als Zusammenfassungen. Sie brauchen klare Regeln. Fakten, Deutungen, Wissenslücken und Empfehlungen müssen mit prüfbaren Belegen verbunden sein.
-
-Das fachliche Wissen ist der eigentliche Schatz eines Projekts. Project Inventory soll dieses Wissen auffindbar, prüfbar und für einen konkreten Zweck nutzbar machen.
+AGDF Project Inventory führt verteilte Projektsignale zu einem evidenzbasierten Inventory Report zusammen, damit Unternehmen eine konkrete Entscheidung unter sichtbaren Wissensgrenzen treffen können.
 
 ## Status
 
-Dieses Repository ist ein Diskussionsentwurf. Es beschreibt eine Annahme, mögliche Grundsätze und offene Fragen. Es ist keine freigegebene Produktspezifikation. Es ist auch keine Zusage für eine Umsetzung. Der Nutzen in echten Projekten ist noch nicht belegt.
+Dieses Repository beschreibt eine Produktidee, mögliche Grundsätze und offene Fragen. Es ist keine freigegebene Produktspezifikation, keine Implementierungszusage und kein Nachweis praktischer Wirksamkeit.
 
-Die Dokumente unterscheiden Beobachtungen, Deutungen, vorgeschlagene Regeln und offene Fragen. Eine vorgeschlagene Regel beschreibt den Entwurf. Sie ist keine Beobachtung eines bereits vorhandenen Produkts.
+Die Diskussion unterscheidet Beobachtungen, Interpretationen, unbekannte Bereiche und Empfehlungen. Eine vorgeschlagene Regel beschreibt den Entwurf. Sie ist keine Funktion eines bereits vorhandenen Produkts.
 
-Zuerst soll geprüft werden, ob eine Projektbestandsaufnahme mit AGDF Unternehmen einen eigenen und wiederholbaren Nutzen bietet.
+## Welches Problem soll gelöst werden?
 
-## Erste 5 Minuten
+Bei Projektübernahmen, Modernisierungen, Lieferproblemen, Anbieterwechseln oder Prüfungen müssen Unternehmen entscheiden, obwohl die Informationen verteilt und unvollständig sind.
 
-So bekommst du schnell einen Überblick.
+Quellcode, Dokumentation, Tickets, Tests, Betriebsdaten und Aussagen von Beteiligten zeigen jeweils nur einen Ausschnitt. KI kann diese Quellen schnell zusammenfassen. Eine überzeugende Zusammenfassung ist aber noch keine belastbare Bestandsaufnahme.
 
-1. Lies die Ausgangsbeobachtung und Kernthese im [Manifest](docs/00-manifest.md).
-2. Schau dir das Evidenzmodell, den Ablauf und die Ergebnisse im [Überblick](docs/01-project-inventory-ueberblick.md) an.
-3. Lies im Dokument [Aufbau und Verantwortung](docs/02-aufbau-und-verantwortung.md), wie ein Inventory Run fachlich aufgebaut ist.
+Für eine Entscheidung muss sichtbar bleiben:
 
-Danach solltest du diese Fragen beantworten können.
+1. Was wurde tatsächlich beobachtet?
+2. Welche Evidenz trägt die Aussage?
+3. Was wurde interpretiert?
+4. Welche entscheidungsrelevanten Informationen fehlen?
+5. Welche Empfehlungen folgen daraus und wer muss entscheiden?
 
-- Welchem Hauptzweck soll eine Project Inventory dienen?
-- Wie werden Fakten, Interpretationen, Unbekanntes und Empfehlungen getrennt?
-- Welche Rolle übernimmt AGDF und welche ausdrücklich nicht?
-- Wie wird aus Quellen und Belegen ein gemeinsamer Bericht?
+## Was ist das Ergebnis?
 
-## Warum es dieses Projekt gibt
+Das führende Ergebnis eines Inventory Run ist der **Inventory Report**. Er beschreibt einen abgegrenzten Untersuchungsauftrag zu einem bestimmten Zeitpunkt.
 
-Ausgangspunkt des Entwurfs ist eine Arbeitshypothese. Projektbestandsaufnahmen entstehen oft unter Zeitdruck. Die Informationen sind verteilt und unvollständig. KI kann diese Quellen schnell auswerten und gut zusammenfassen. Eine gute Darstellung ist aber noch keine belastbare Bestandsaufnahme.
+Der Report verbindet Findings mit ihrer Herkunft, Reichweite, Aussageklasse und verbleibenden Unsicherheit. Managementzusammenfassungen, Risikoansichten, Maßnahmenlisten, Architekturansichten und Präsentationen werden daraus abgeleitet. Sie bilden keine zweite Quelle der Wahrheit.
 
-Der Entwurf geht von einer Arbeitshypothese aus. Ein eigener Auftrag für Aufräumen und Wissenspflege ist in Projekten nicht immer erkennbar. Das kann bei einer Kostenstelle ebenso vorkommen wie bei einem Profit Center. Die wirtschaftliche Einordnung erklärt den Grund dafür nicht. Project Inventory soll deshalb auch dann einen nutzbaren Stand liefern, wenn keine spätere Bereinigung beauftragt ist.
+## Unternehmenswert
 
-Der Entwurf fragt deshalb nach klaren Regeln. Die Herkunft, die Reichweite und die Unsicherheit von Aussagen müssen sichtbar bleiben. So kann aus fachlichen und technischen Beobachtungen ein prüfbarer Stand für Entscheidungen, laufende Arbeit und dauerhaftes Projektwissen entstehen.
+Der Entwurf zielt auf einen klaren, begrenzten Nutzen:
 
-Bei Änderungen mit KI besteht ein weiteres Risiko. Ohne ausreichenden Projektkontext kann eine neue Lösung entstehen, obwohl bereits eine passende Lösung oder ein verantwortlicher Erweiterungspunkt vorhanden ist. Das kann unnötige Änderungen und parallele Verantwortungen erzeugen.
+- schneller zu einem prüfbaren Projektbild gelangen
+- Wissenslücken vor einer Entscheidung sichtbar machen
+- technische Beobachtungen mit dem geschäftlichen Anlass verbinden
+- Empfehlungen von bereits beschlossenen Maßnahmen trennen
+- einen nachvollziehbaren Übergang von Bestandsaufnahme zu Veränderung ermöglichen
 
-Project Inventory soll die KI nicht nur begrenzen. Es soll ihr helfen, das bestehende Projekt zu verstehen. AGDF steuert, ob eine Änderung zulässig ist. Das Projektgedächtnis hilft zu erkennen, wo und wie sie in der bestehenden Lösung erfolgen sollte.
-
-## Was der Entwurf vorschlägt
-
-Project Inventory ist hier keine einfache Liste von Dateien, Technik oder Abhängigkeiten. Es ist ein geordnetes Bild des Projekts. Beobachtete Fakten, Deutungen, unbekannte Bereiche und Empfehlungen werden mit Belegen verbunden.
-
-Project Inventory rekonstruiert aus zugänglichen Projektspuren schrittweise einen evidenzbasierten Projektkontextgraphen. Der Inventory Report nutzt einen geprüften Ausschnitt für einen bestimmten Auftrag und Zeitpunkt.
-
-Bestehende fachliche Quellen bleiben für ihr Wissen verantwortlich. Der Inventory Report führt die Bewertung für den jeweiligen Auftrag. Daraus entstehen kürzere Darstellungen. Dazu gehören eine Zusammenfassung für das Management, ein Maßnahmenkatalog, eine Architekturansicht, eine Risikoansicht oder eine Präsentation.
+Project Inventory gewinnt seinen Wert nicht durch möglichst viele Findings. Entscheidend ist, ob der Inventory Report eine konkrete Entscheidung besser vorbereitet.
 
 ## Rolle von AGDF
 
-Der Entwurf ist als ergänzendes Plugin für [AGDF](https://agdf.iself.eu/) vorgesehen. AGDF soll die Regeln für Freigaben, Belege und Lieferung bereitstellen. Project Inventory soll diese Regeln nicht ein zweites Mal aufbauen.
+Der Entwurf ist als ergänzendes Plugin für [AGDF](https://agdf.iself.eu/) vorgesehen.
 
-Beide Projekte können durch ein gemeinsames Projektgedächtnis zusammenarbeiten. Project Inventory baut Wissen aus belegten Projektspuren auf und pflegt es. AGDF nutzt den passenden Ausschnitt für eine konkrete Aufgabe und lässt wichtige Aussagen erneut an den verantwortlichen Quellen prüfen. Neue dauerhaft nutzbare Erkenntnisse können danach in das Projektgedächtnis zurückfließen.
+AGDF verantwortet den gesteuerten Rahmen. Dazu gehören Scope, Freigaben, Evidenzgrenzen, Run State und der Übergang von bestätigten Findings in eine mögliche Veränderung.
 
-Das Projektgedächtnis ist kein Ersatz für die verantwortlichen Projektquellen. Der AGDF Context Graph bleibt ebenfalls getrennt. Er enthält nur Wissen, das für gesteuerte Veränderungen und spätere Lieferentscheidungen wichtig ist.
+Project Inventory verantwortet die Bestandsaufnahme. Dazu gehören Untersuchungsauftrag, Evidenzregister, Bewertung, offene Fragen und Inventory Report.
 
-Eine allgemeine Projektbestandsaufnahme ist auch ohne AGDF möglich. Ein durch AGDF gesteuerter Inventory Run braucht dagegen eine passende Installation von AGDF.
+Eine allgemeine Projektbestandsaufnahme kann auch ohne AGDF stattfinden. Ein durch AGDF gesteuerter Inventory Run setzt eine passende AGDF Installation voraus.
 
-## Dokumente
+## Abgrenzung zu Project Memory
 
-Folgende Reihenfolge ist empfohlen.
+Ein dauerhaftes Projektgedächtnis kann später eine sinnvolle eigene Erweiterung werden. Es ist jedoch nicht das Kernprodukt dieses Entwurfs.
 
-1. [00 Manifest](docs/00-manifest.md)
-2. [01 Überblick](docs/01-project-inventory-ueberblick.md)
-3. [02 Aufbau und Verantwortung](docs/02-aufbau-und-verantwortung.md)
-4. [03 Pilotversuch](docs/03-pilotversuch.md)
+AGDF Project Inventory bleibt begrenzt. Es untersucht ein Projekt für einen konkreten Anlass und liefert einen zeitbezogenen Bericht. Ein mögliches **AGDF Project Memory** würde dagegen dauerhaftes, wiederverwendbares Projektwissen pflegen. Diese Verantwortung sollte als separates Add-in diskutiert werden.
 
-## Welche Fragen sind interessant?
+## Erste 5 Minuten
 
-- Welchem Hauptzweck soll eine Project Inventory dienen?
-- Welche Belege braucht eine belastbare Bestandsaufnahme mindestens?
-- Wann genügt ein kompakter Ansatz und wann ist eine strukturierte Tiefe erforderlich?
-- Wie werden technische Findings ohne Scheingenauigkeit priorisiert?
-- Welchen Nutzen hat der Bericht, wenn niemand eine Bereinigung beauftragt?
-- Woran lässt sich in realen Projekten messen, ob der Ansatz bessere Entscheidungen ermöglicht?
+1. Lies die Ausgangsfrage und die Prinzipien im [Manifest](docs/00-manifest.md).
+2. Schau dir Auftrag, Evidenzmodell und Ergebnisse im [Überblick](docs/01-project-inventory-ueberblick.md) an.
+3. Lies in [Aufbau und Verantwortung](docs/02-aufbau-und-verantwortung.md), wie ein Inventory Run fachlich aufgebaut ist.
+4. Prüfe im [Pilotversuch](docs/03-pilotversuch.md), wie der Entscheidungsnutzen beobachtet werden könnte.
 
-Bis diese Fragen ausreichend geklärt und ein User Requirement Scope freigegeben ist, bleibt dieses Repository bewusst ein Diskussionsentwurf.
+## Leitfragen der Diskussion
+
+- Für welche Unternehmensentscheidung ist Project Inventory zuerst wertvoll?
+- Welche Evidenz braucht ein belastbarer Inventory Report mindestens?
+- Wann genügt eine kompakte Bestandsaufnahme und wann ist mehr Tiefe nötig?
+- Wer darf Findings, Wissenslücken und Empfehlungen bestätigen?
+- Wie wird der Nutzen beobachtet, ohne Scheingenauigkeit zu erzeugen?
+- Wann sollte aus einem Finding ein eigener AGDF Delivery Scope entstehen?
+
+Bis diese Fragen praktisch geprüft und spätere Produktscopes ausdrücklich freigegeben sind, bleibt dieses Repository bewusst ein offener Diskussionsentwurf.

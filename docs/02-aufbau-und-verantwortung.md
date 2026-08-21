@@ -1,423 +1,198 @@
-# Aufbau und Verantwortung
+# Aufbau und Verantwortung eines Inventory Run
 
 ## Ziel dieses Dokuments
 
-Dieses Dokument beschreibt den fachlichen Aufbau eines Inventory Run.
+Dieses Dokument beschreibt den fachlichen Aufbau eines AGDF gesteuerten Inventory Run. Es legt keine technische Architektur, Speicherung oder Plugin Implementierung fest.
 
-Es zeigt, welche Teile zusammengehören und wer für sie verantwortlich ist. Es beschreibt keine technische Architektur. Datenbanken, Schnittstellen, Dateiformate und die Umsetzung eines Plugins bleiben offen.
+## Das funktionale Bild
 
-Der Aufbau ist ein Diskussionsentwurf. Er ist noch keine freigegebene Produktspezifikation.
+Ein Inventory Run verbindet sieben Bereiche.
 
-Aussagen über den Ablauf und die Verantwortung sind vorgeschlagene Regeln. Das Praxisbeispiel trennt Beobachtungen und Deutungen.
+```text
+Unternehmensanlass
+        ↓
+Untersuchungsauftrag
+        ↓
+Quellen und Evidenzregister
+        ↓
+Findings und Wissenslücken
+        ↓
+Verantwortliche Prüfung
+        ↓
+Inventory Report
+        ↓
+Entscheidung oder getrennter Delivery Scope
+```
 
-## Grundidee
+Die Reihenfolge ist wichtig. Ohne Entscheidungsanlass bleibt der Scope beliebig. Ohne Evidenz bleiben Findings bloße Behauptungen. Ohne sichtbare Wissenslücken entsteht Scheinsicherheit. Ohne verantwortliche Prüfung wird eine KI Bewertung leicht mit einer Unternehmensentscheidung verwechselt.
 
-Ein Inventory Run führt verteilte Informationen zu einer belastbaren Bestandsaufnahme zusammen.
+## 1. Unternehmensanlass
 
-Das fachliche Wissen ist der eigentliche Schatz des Projekts. Der Ablauf beginnt mit einer ausreichenden Ausgangslage und einem vorläufigen Auftrag. Danach werden Quellen erfasst und Belege geprüft. Beobachtungen, Deutungen und offene Bereiche werden getrennt ausgewertet. Dauerhaft nutzbare Erkenntnisse bilden schrittweise einen Projektkontextgraphen. Das führende Ergebnis des Run ist der Inventory Report. Kürzere Darstellungen werden aus dem Bericht abgeleitet.
+Der Anlass erklärt, warum die Bestandsaufnahme jetzt gebraucht wird.
 
-Im vorgeschlagenen Modell steuert AGDF diesen Ablauf. Project Inventory führt die fachliche Bestandsaufnahme durch. Externe Systeme liefern Informationen. Menschen prüfen die Ergebnisse und bleiben für Entscheidungen verantwortlich.
+Beispiele sind Übernahme, Modernisierung, Stabilisierung, Due Diligence, Anbieterwechsel oder eine wichtige Investition.
 
-## 1. Auftrag und Ausgangslage
+Der Anlass ist noch kein Untersuchungsauftrag. Er gibt jedoch vor, welcher Nutzen am Ende erwartet wird.
 
-Ein Inventory Run braucht zu Beginn keinen vollständigen Auftrag. Oft beginnt die Bestandsaufnahme gerade deshalb, weil wichtige Fragen noch nicht beantwortet sind.
+## 2. Untersuchungsauftrag
 
-Für den Start müssen nur die folgenden Punkte klar sein.
+Der Untersuchungsauftrag übersetzt den Anlass in eine begrenzte Frage.
 
-* untersuchtes Projekt
-* Anlass der Bestandsaufnahme
-* erlaubter Zugriff auf Quellen
-* Bereiche, die untersucht werden dürfen
-* Informationen, die nicht verarbeitet werden dürfen
-* zuständige Person oder Stelle für Zugriff und Rückfragen
+Er hält mindestens fest:
 
-Weitere Punkte dürfen zunächst offen sein.
+- vorzubereitende Entscheidung
+- Auftraggeber und Zielgruppe
+- untersuchten Gegenstand und Zeitpunkt
+- einbezogene und ausgeschlossene Bereiche
+- erlaubte und erwartete Quellen
+- gewünschte Tiefe
+- Schutz vertraulicher Informationen
+- erforderliche Bestätigung
 
-* genaue Zielgruppe
-* konkrete Entscheidung, die vorbereitet werden soll
-* vollständige Grenzen der Untersuchung
-* verfügbare Zeit
-* Person für die Prüfung des Ergebnisses
-* gewünschte Form des Ergebnisses
+AGDF steuert die Freigabe und den gültigen Scope. Project Inventory führt die Untersuchung innerhalb dieser Grenze durch.
 
-Offene Punkte werden im Auftrag sichtbar festgehalten. Sie werden während der Untersuchung geklärt oder im Inventory Report als weiterhin offen benannt.
+## 3. Quellen und Evidence Register
 
-Der Inventory Run beginnt nicht, wenn das Projekt unklar ist, der Zugriff nicht erlaubt wurde oder der Schutz vertraulicher Informationen nicht geklärt ist.
+Quellen bleiben für ihren jeweiligen Inhalt maßgeblich. Project Inventory kopiert ihre Autorität nicht in einen neuen Bericht.
 
-### Hauptzweck der Bestandsaufnahme
+Das Evidence Register hält fest:
 
-Der Auftrag hält fest, wofür die Bestandsaufnahme hauptsächlich genutzt werden soll.
+- welche Quelle verwendet wurde
+- wann sie betrachtet wurde
+- welchen Bereich sie abdeckt
+- welche Zugriffsgrenzen bestanden
+- ob es Widersprüche oder bekannte Qualitätsprobleme gibt
 
-* Eine Entscheidung vorbereiten. Im Mittelpunkt stehen Risiken, Möglichkeiten, offene Fragen und mögliche Folgen.
-* Die laufende Arbeit unterstützen. Im Mittelpunkt stehen Einstiegspunkte, Abhängigkeiten, Abläufe und Tests.
-* Ein dauerhaftes Projektgedächtnis aufbauen. Im Mittelpunkt stehen stabiles Wissen, Quellen, Pflege und erkennbare Wissenslücken.
+Eine Quelle kann mehrere Findings stützen. Ein Finding kann mehrere Quellen benötigen.
 
-Ein Inventory Run kann mehrere Zwecke verbinden. Einer davon sollte den Hauptzweck bilden. Er bestimmt, welche Quellen zuerst geprüft werden, wie tief die Untersuchung geht und welche Aussagen im Inventory Report besonders wichtig sind.
+## 4. Findings und Wissenslücken
 
-Die wirtschaftliche Einordnung des Projekts reicht dafür nicht aus. Aus der Zuordnung zu einer Kostenstelle oder einem Profit Center lassen sich ohne weitere Belege weder Budget noch Prioritäten oder Beweggründe ableiten. Der Auftrag soll deshalb nur die festgestellte Lage beschreiben und keine spätere Bereinigung voraussetzen.
+Ein Finding besteht nicht nur aus einem Satz und einer Priorität. Es macht die Art der Aussage sichtbar.
 
-### Praxisbeispiel aus einem gewachsenen Projekt
+- Beobachtung
+- Interpretation
+- Unbekannt
+- Empfehlung
 
-Beobachtet wurde eine Bestandsaufnahme in einem großen gewachsenen Softwareprojekt. Eine genaue Entscheidungsfrage war in den untersuchten Unterlagen nicht erkennbar. Konkrete Aufgaben führten wiederholt zu Suchen nach Modulen, Abhängigkeiten, Laufzeitwegen und passenden Tests.
+Eine Priorisierung darf Unsicherheit nicht verstecken. Ein hohes Risiko ohne belastbare Evidenz bleibt als Interpretation oder offene Frage erkennbar.
 
-Zuerst entstanden ein vollständiger Modulkatalog, eine Karte des Projekts, wichtige Abläufe und eine Übersicht der Tests. Weitere Bereiche wurden untersucht, wenn konkrete Aufgaben und Fehler sie berührten. Fehlende Informationen wurden zusammen mit der benötigten Quelle festgehalten.
+## 5. Verantwortliche Prüfung
 
-Aus den vorhandenen Artefakten ergibt sich folgende Deutung. Die Bestandsaufnahme diente hauptsächlich dem Aufbau eines dauerhaften Projektgedächtnisses für Menschen und KI. Sie unterstützte zugleich die laufende Arbeit. Das Projektgedächtnis sollte zeigen, wo eine Änderung beginnt, welche Bereiche zusammenhängen, welche Prüfungen wichtig sind und was noch nicht bekannt ist.
+Agenten und KI können Quellen untersuchen, Beziehungen herstellen und Widersprüche sichtbar machen. Sie übernehmen dadurch nicht automatisch fachliche, technische oder geschäftliche Verantwortung.
 
-Eine mögliche Deutung des vorläufigen Auftrags lautet: Das Projekt soll so verständlich werden, dass Änderungen schneller und mit weniger Risiko vorbereitet werden können.
+Eine verantwortliche Prüfung kann klären:
 
-In den untersuchten Unterlagen wurde kein gemeinsamer Inventory Report für den jeweiligen Stand gefunden. Auftrag, wichtigste Ergebnisse, Risiken und offene Fragen waren dort nicht an einer Stelle zusammengeführt.
+- ob eine fachliche Aussage zutrifft
+- ob eine technische Beobachtung den relevanten Bereich abdeckt
+- ob ein unbekannter Bereich entscheidungsrelevant ist
+- ob eine Empfehlung realistisch und verantwortbar ist
+- ob der Report für die vereinbarte Entscheidung ausreicht
 
-Der Entwurf leitet daraus zwei Annahmen ab. Ein Inventory Run kann mit einem praktischen Anlass beginnen. Dauerhaftes Projektwissen und der Bericht über eine konkrete Bestandsaufnahme erfüllen verschiedene Aufgaben. Als vorgeschlagene Regel darf der Auftrag genauer werden, sobald konkrete Fragen und neue Belege entstehen.
-
-### Grundaufnahme und laufende Vertiefung
-
-Aus dem Praxisbeispiel ergibt sich für den Entwurf eine Arbeitsweise mit zwei Teilen.
-
-Die Grundaufnahme schafft eine erste Orientierung über das Projekt. Sie erfasst die Struktur, wichtige Bereiche, bekannte Abhängigkeiten, vorhandene Quellen und erkennbare Wissenslücken. Sie muss noch nicht jeden Bereich vollständig erklären.
-
-Die laufende Vertiefung beginnt mit einer realen Aufgabe, einem Fehler oder einer Entscheidung. Die Untersuchung folgt von diesem Anlass aus den betroffenen Abläufen, Abhängigkeiten und Tests. Neue Aussagen werden mit Belegen verbunden. Dauerhaft nutzbare Erkenntnisse werden nach ihrer Prüfung in das Projektgedächtnis übernommen. Flüchtige oder nur für den Vorgang wichtige Beobachtungen bleiben beim Vorgang.
-
-Damit kann eine konkrete Aufgabe zwei Ergebnisse liefern. Sie bearbeitet ihren eigentlichen Anlass und verbessert zugleich das Verständnis des Projekts.
-
-Der Ablauf beginnt danach nicht wieder bei null. Spätere Aufgaben nutzen das vorhandene Wissen, prüfen es für ihren Bereich und ergänzen es bei Bedarf. Ein neuer Inventory Report bleibt trotzdem nötig, wenn für einen neuen Auftrag ein bewerteter und geprüfter Gesamtstand gebraucht wird.
-
-Der vorgeschlagene Lebenszyklus lautet daher.
-
-1. Eine Grundaufnahme schafft Orientierung.
-2. Eine reale Aufgabe vertieft den betroffenen Bereich.
-3. Neue Aussagen werden geprüft.
-4. Dauerhaft nutzbare Aussagen werden in den Projektkontextgraphen übernommen.
-5. Ein Inventory Report bewertet den nötigen Ausschnitt für einen konkreten Auftrag.
-
-## 2. Quellen
-
-Quellen liefern Informationen über das Projekt.
-
-Dazu können gehören.
-
-* Quellcode und Verlauf im Repository
-* fachliche Begriffe, Regeln und Modelle
-* Architektur und technische Dokumentation
-* Build, Tests und Pipeline
-* Tickets, Backlogs und Entscheidungen
-* Konfiguration für Betrieb und Lieferung
-* Berichte über Qualität und Sicherheit
-* beobachtetes Verhalten im laufenden System
-* Aussagen von beteiligten Personen
-* externe Systeme und spätere Connectoren
-
-Eine Quelle ist noch kein Beleg für jede mögliche Aussage. Ihr Inhalt, ihr Zeitpunkt und ihre Reichweite müssen geprüft werden.
-
-Quellcode kann fachliches Verhalten sichtbar machen. Er erklärt aber nicht immer, warum eine Regel besteht, welche Ausnahme beabsichtigt ist oder wer ihre Bedeutung bestätigen kann. Dafür können weitere Quellen und verantwortliche Menschen nötig sein.
-
-## 3. Belege
-
-Das Register der Belege hält fest, worauf sich eine Aussage stützt.
-
-Zu jedem Beleg gehören mindestens diese Angaben.
-
-* Herkunft
-* Zeitpunkt der Beobachtung
-* untersuchter Bereich
-* Art der Quelle
-* erreichbarer Verweis
-* bekannte Grenzen
-* Stand der Prüfung
-
-Belege aus dem Repository zeigen nur den dort beobachteten Stand. Sie beweisen nicht automatisch das Verhalten im Betrieb. Eine Aussage aus einem Gespräch ist wichtig, bleibt aber von einer direkt prüfbaren Beobachtung getrennt.
-
-## 4. Auswertung
-
-Die Auswertung verbindet den Auftrag mit den verfügbaren Belegen.
-
-Sie unterscheidet vier Arten von Aussagen.
-
-### Beobachtete Fakten
-
-Diese Aussagen lassen sich direkt auf eine geprüfte Quelle zurückführen.
-
-### Deutungen
-
-Diese Aussagen leiten eine Bedeutung aus mehreren Beobachtungen ab. Die zugrunde liegenden Belege bleiben sichtbar.
-
-### Unbekannte Bereiche
-
-Diese Informationen fehlen, sind widersprüchlich oder konnten nicht geprüft werden.
-
-### Empfehlungen
-
-Diese Aussagen schlagen eine Handlung vor. Sie sind keine Entscheidung und keine Freigabe zur Umsetzung.
-
-### Sprache des Beobachters
-
-Der Inventory Report beschreibt immer, was innerhalb des untersuchten Bereichs festgestellt werden konnte.
-
-Er sagt zum Beispiel.
-
-* In den geprüften Quellen wurde kein freigegebenes Budget gefunden.
-* Für das Finding konnte keine verantwortliche Stelle festgestellt werden.
-* Eine befragte Person nannte Lieferung als aktuelle Priorität.
-* Der Grund für diese Priorität konnte nicht geprüft werden.
-
-Nicht gefunden bedeutet nicht automatisch nicht vorhanden. Eine Aussage über Absicht, Priorität oder Verantwortung braucht einen eigenen Beleg.
-
-Die Auswertung soll außerdem Widersprüche, Risiken und fehlende Quellen sichtbar machen.
-
-## 5. Projektkontextgraph
-
-Der Projektkontextgraph verbindet dauerhaft nutzbare Aussagen über das Projekt. Er kann fachliche Begriffe, Regeln, Module, Abläufe, Tests, Entscheidungen, Personen, Risiken und offene Fragen enthalten.
-
-Eine Beziehung im Graphen ist selbst eine Aussage. Sie braucht deshalb eine Quelle, eine Aussageklasse, einen Zeitpunkt, einen untersuchten Bereich und einen Stand der Prüfung. Eine Deutung darf nicht wie eine direkt beobachtete Abhängigkeit behandelt werden.
-
-Der Graph ersetzt die verantwortlichen fachlichen Quellen nicht. Er verweist auf sie und macht Zusammenhänge für spätere Aufgaben auffindbar. Ohne belegte Pflege darf er nicht als vollständig oder aktuell bezeichnet werden.
-
-Offene Fragen und Widersprüche gehören ebenfalls in den Projektkontext. Sie werden nicht durch eine vermutete Verbindung geschlossen.
-
-Der Entwurf legt noch nicht fest, ob der Projektkontextgraph später in Dokumenten, Dateien, einer Datenbank oder einem besonderen Graphformat geführt wird.
+Nicht bestätigte Aussagen bleiben entsprechend gekennzeichnet.
 
 ## 6. Inventory Report
 
-Der Inventory Report ist das führende fachliche Ergebnis des Inventory Run. Er hält die Bewertung für den jeweiligen Auftrag fest.
+Der Inventory Report ist die führende bewertete Sicht des Run.
 
-Er verbindet mindestens die folgenden Inhalte.
+Er verbindet:
 
-* Auftrag und Grenzen
-* verwendete Quellen
-* wichtige Beobachtungen
-* Deutungen
-* unbekannte Bereiche
-* Risiken und Widersprüche
-* Empfehlungen
-* Stand der Prüfung
+- Auftrag und Grenzen
+- Evidenzlage
+- wesentliche Findings
+- Widersprüche und Wissenslücken
+- Risiken und Empfehlungen
+- Prüfstatus
+- verbleibende Entscheidungsgrenzen
 
-Der Bericht verweist auf das bestehende fachliche und technische Projektwissen. Er kopiert Details nur dann, wenn sie für den Auftrag nötig sind.
+Der Report ist zeitbezogen. Eine spätere Änderung im Projekt macht den damaligen Report nicht falsch, kann ihn aber für eine neue Entscheidung unzureichend machen.
 
-Der Bericht ersetzt die verantwortlichen fachlichen Quellen nicht. Entsteht dauerhaft nutzbares Wissen, wird es nach der Prüfung in das Projektgedächtnis oder die zuständige fachliche Quelle übernommen. Der Inventory Report verweist auf diesen Stand.
+## 7. Entscheidung und Übergang
 
-Ohne geregelte Pflege bleibt das Ergebnis eine Bestandsaufnahme mit Datum und bekannten Grenzen. Es darf dann nicht als dauerhaft aktuelles Projektgedächtnis bezeichnet werden.
+Project Inventory bereitet eine Entscheidung vor. Es trifft sie nicht automatisch.
 
-Ändert sich die Bewertung des Run, wird zuerst der Inventory Report geändert. Eine Folie oder eine kurze Zusammenfassung darf keine eigene fachliche Wahrheit bilden.
+Mögliche Ergebnisse sind:
 
-## 7. Prüfung durch Menschen
+- Entscheidung auf vorhandener Evidenz
+- Entscheidung mit ausdrücklich akzeptierter Unsicherheit
+- zusätzliche Untersuchung
+- keine Entscheidung wegen wesentlicher Evidenzlücken
+- Vorbereitung eines getrennten AGDF Delivery Scope
 
-Im vorgeschlagenen Ablauf prüfen verantwortliche Menschen den Bericht.
+Eine Empfehlung im Inventory Report ist keine Umsetzungsfreigabe. Der Übergang in Veränderung braucht einen eigenen Auftrag, seine Freigaben und seine Nachweise.
 
-Die Prüfung kann Aussagen bestätigen, Änderungen verlangen oder offene Punkte festhalten. Sie macht aus einer Empfehlung noch keine Freigabe zur Umsetzung.
+## Abgeleitete Sichten
 
-Wer den Bericht prüft, übernimmt dadurch nicht automatisch die Verantwortung für eine spätere Bereinigung.
+Unterschiedliche Zielgruppen brauchen unterschiedliche Darstellungen.
 
-Eine Bestandsaufnahme kann technisch gut belegt sein und trotzdem eine fachliche Prüfung brauchen. Das gilt besonders bei Geschäftsregeln, Risiken, Verantwortung und Entscheidungen mit großer Wirkung.
+| Sicht | Zweck | Grenze |
+|---|---|---|
+| Managementzusammenfassung | Entscheidung und wesentliche Unsicherheit | keine neue Bewertung |
+| Risikosicht | Risiken, Wirkung und Evidenzlage | keine versteckte Priorisierung |
+| Architekturansicht | relevante technische Zusammenhänge | kein vollständiges Architekturmodell |
+| Maßnahmenliste | mögliche Folgearbeit | keine Beauftragung |
+| Präsentation | verständliche Kommunikation | bleibt auf Report zurückführbar |
 
-## 8. Abgeleitete Darstellungen
+Alle Sichten werden aus dem Inventory Report abgeleitet. Widersprechen sie ihm, muss die Abweichung geklärt werden.
 
-Aus dem geprüften Inventory Report können kürzere Darstellungen entstehen.
+## Verantwortungsgrenzen
 
-Dazu gehören zum Beispiel.
+### AGDF Core
 
-* Zusammenfassung für das Management
-* Liste der wichtigsten Risiken
-* Maßnahmenliste
-* Architekturansicht
-* Bericht für eine Übergabe
-* Präsentation für ein Gremium
+AGDF verantwortet:
 
-Diese Darstellungen kürzen den Bericht für eine Zielgruppe. Sie dürfen keine neuen Belege, Bewertungen oder Empfehlungen einführen.
+- Scope und Gate Status
+- erforderliche Freigaben
+- zulässige Evidenzgrenzen
+- Run State und Abschluss
+- Übergang in einen getrennten Delivery Scope
 
-## 9. Übergang zu Veränderungen
+### AGDF Project Inventory
 
-Ein Finding oder eine Empfehlung führt nicht automatisch zu einer Änderung am untersuchten Projekt.
+Project Inventory verantwortet:
 
-Ein Finding kann bestehen bleiben, wenn im untersuchten Bereich kein Budget bestätigt, keine verantwortliche Stelle gefunden und keine Umsetzung beauftragt wurde. Der Inventory Report hält diese Beobachtungen mit ihrer Reichweite fest. Sie verhindern nicht den fachlichen Abschluss des Inventory Run.
+- Aufnahme des Untersuchungsauftrags
+- Registrierung und Untersuchung der Evidenz
+- Trennung der Aussageklassen
+- Findings und Wissenslücken
+- Inventory Report und abgeleitete Sichten
 
-Wenn aus der Bestandsaufnahme eine Veränderung entstehen soll, beginnt dafür ein eigener und klarer Scope in AGDF. Die Bestandsaufnahme liefert Belege und Kontext. AGDF steuert den neuen Bedarf, die Freigaben und die weitere Lieferung.
+### Externe Systeme
 
-So bleiben Bestandsaufnahme und Umsetzung voneinander getrennt.
+Repositorys, Ticket- und Dokumentationssysteme, Laufzeitplattformen und spätere Connectoren liefern Informationen. Sie erteilen keine AGDF Freigaben und entscheiden nicht über die Bewertung.
 
-## Vorgeschlagene Verantwortung von AGDF Core
+### Menschen
 
-AGDF Core bleibt verantwortlich für die Steuerung des Run.
+Menschen verantworten Zugriff, fachliche Bestätigung, Risikoakzeptanz und Unternehmensentscheidung.
 
-Dazu gehören.
+## Schutz vor parallelen Wahrheiten
 
-* Scope und Run State
-* Gates und Freigaben
-* Quellen der Wahrheit
-* Grenzen von Belegen
-* sichtbare Qualitätsentscheidungen
-* Übergang von Findings zu einem neuen Veränderungsvorhaben
-* Abschluss und Lieferung
+Der Inventory Report führt die Bewertung des Run. Er ersetzt jedoch nicht die verantwortlichen Quellsysteme.
 
-Project Inventory baut dafür keine zweite Steuerung auf.
+Diese Unterscheidung verhindert zwei Fehler:
 
-## Vorgeschlagene Verantwortung von Project Inventory
+1. Eine alte Zusammenfassung wird nicht zur neuen fachlichen Wahrheit.
+2. Eine Managementfolie wird nicht zum zweiten Inventory Report.
 
-Project Inventory verantwortet die fachliche Bestandsaufnahme.
+## Project Memory als spätere Erweiterung
 
-Dazu gehören.
+Ein dauerhaftes Project Memory könnte bestätigtes Wissen aus mehreren Inventories und Delivery Aufgaben wiederverwendbar machen. Das wäre eine eigene Produktverantwortung mit Fragen zu Aktualität, Pflege, Konflikten und Zugriff.
 
-* Fragen für Auftrag und Untersuchung
-* Struktur des Registers der Belege
-* Regeln für die Auswertung
-* fachliches Modell des Projektkontextgraphen
-* Regeln für die Übernahme geprüfter Aussagen
-* Aufbau des Inventory Report
-* Darstellung von Risiken und offenen Punkten
-* Ableitung kürzerer Darstellungen
-* fachliche Regeln für eine spätere Erneuerung der Bestandsaufnahme
+Dieser Entwurf setzt ein solches Add-in nicht voraus. AGDF Project Inventory muss seinen Nutzen durch einen begrenzten Inventory Run und einen belastbaren Report zeigen können.
 
-Project Inventory entscheidet nicht allein über Freigaben, Umsetzung oder Lieferung.
+## Was noch nicht festgelegt ist
 
-## Gemeinsamer Rahmen beider Projekte
-
-Der gemeinsame Rahmen für AGDF und Project Inventory ist das Projektgedächtnis. Die Projekte werden dafür nicht zusammengelegt. Sie arbeiten über eine klare Vereinbarung zusammen.
-
-Die vorgeschlagene Aufteilung besteht aus drei Teilen.
-
-### Projektgedächtnis
-
-Das Projektgedächtnis enthält dauerhaft nutzbares Wissen über das Projekt. Project Inventory hilft dabei, dieses Wissen aus zugänglichen Spuren zu ermitteln, mit Belegen zu verbinden und geordnet zu pflegen.
-
-Die verantwortlichen fachlichen und technischen Quellen bleiben maßgeblich. Das Projektgedächtnis ersetzt weder Quellcode noch Tests, Dokumente, Entscheidungen oder Aussagen verantwortlicher Menschen.
-
-### Gesteuerte Veränderung
-
-AGDF steuert eine konkrete Aufgabe oder Veränderung. Dazu gehören Auftrag, Freigaben, Prüfung, Umsetzung und Abschluss.
-
-AGDF darf vorhandenes Projektwissen als Orientierung verwenden. Aussagen über den betroffenen Bereich werden für die konkrete Aufgabe erneut an den verantwortlichen Quellen geprüft. Eine ältere Aussage wird nicht allein deshalb übernommen, weil sie im Projektgedächtnis steht.
-
-### AGDF Context Graph
-
-Der AGDF Context Graph bleibt kleiner als das Projektgedächtnis. Er nimmt nur Erkenntnisse auf, die für gesteuerte Veränderungen und spätere Lieferentscheidungen wichtig bleiben. Dazu können Entscheidungen, Risiken, Regeln, Abhängigkeiten und noch zu erfüllende Bedingungen gehören.
-
-Ein Modul, ein Fachbegriff oder ein Test gehört nicht automatisch in den AGDF Context Graph. Im Projektgedächtnis kann dieses Wissen trotzdem wichtig sein.
-
-## Zwei verschiedene Schutzwirkungen
-
-AGDF und das Projektgedächtnis schützen das Projekt auf unterschiedliche Weise.
-
-AGDF steuert Auftrag, Freigaben, Prüfung und Abschluss. Es begrenzt, welche Veränderung zulässig ist.
-
-Das Projektgedächtnis hilft der KI, das bestehende Projekt zu verstehen. Es macht verantwortliche Lösungen, Muster, Abläufe, Abhängigkeiten und Tests auffindbar. Dadurch kann eine Änderung am vorhandenen Erweiterungspunkt erfolgen.
-
-Ein Gate allein zeigt nicht automatisch die richtige Stelle für eine Änderung. Projektwissen allein erteilt keine Freigabe. Erst beide Wirkungen zusammen unterstützen eine kontrollierte und anschlussfähige Arbeit mit KI.
-
-Vor einer neuen Lösung wird deshalb geprüft.
-
-1. Gibt es bereits eine Lösung für dieselbe Verantwortung?
-2. Welche Stelle ist für eine Erweiterung vorgesehen?
-3. Welche Muster und Regeln gelten dort?
-4. Welche Abhängigkeiten und Tests müssen erhalten bleiben?
-5. Würde die neue Lösung eine parallele Verantwortung schaffen?
-
-## Arbeitskreislauf
-
-Der vorgeschlagene Kreislauf verbindet Bestandsaufnahme und reale Arbeit.
-
-1. Project Inventory schafft eine erste Orientierung.
-2. Das Projektgedächtnis hält belegtes Wissen und bekannte Lücken fest.
-3. Ein AGDF Lauf liest den passenden Ausschnitt für eine konkrete Aufgabe.
-4. Betroffene Aussagen werden an den verantwortlichen Quellen geprüft.
-5. Die Aufgabe liefert neben ihrem eigentlichen Ergebnis neue Erkenntnisse.
-6. Dauerhaft nutzbares Wissen fließt nach der Prüfung in das Projektgedächtnis zurück.
-7. Wissen mit Bedeutung für weitere Veränderungen kann zusätzlich in den AGDF Context Graph übernommen werden.
-
-Damit beginnt die nächste Aufgabe nicht wieder bei null. Das Projektgedächtnis wird trotzdem nicht ungeprüft als aktuell behandelt.
-
-## Kleiner Vertrag für das Projektgedächtnis
-
-AGDF muss nicht festlegen, wie das Projektgedächtnis technisch gespeichert wird. Für die Zusammenarbeit reichen zunächst wenige Angaben.
-
-* Ort des Projektgedächtnisses
-* untersuchtes Projekt und Geltungsbereich
-* verantwortliche Stelle
-* verwendete Arten von Quellen
-* Stand der letzten Prüfung
-* bekannte Lücken und Grenzen
-* Regeln für neue oder geänderte Aussagen
-
-Dieser Vertrag bleibt optional. AGDF muss ohne Project Inventory funktionieren. Project Inventory darf ebenfalls unabhängig genutzt werden, wenn nur eine Bestandsaufnahme oder ein Projektgedächtnis gebraucht wird.
-
-## Pflege durch reale Arbeit
-
-Ein dauerhaftes Projektgedächtnis darf nicht von einem großen eigenen Aufräumprojekt abhängen. In vielen Projekten gibt es dafür weder einen klaren Auftrag noch eine verantwortliche Stelle.
-
-Die Pflege wird deshalb mit realen Aufgaben verbunden. Jede Aufgabe prüft nur den betroffenen Bereich. Sie übernimmt dauerhaft nutzbare Erkenntnisse und macht veraltete oder widersprüchliche Aussagen sichtbar.
-
-Der Aufwand muss beobachtet werden. Ein Projektgedächtnis ist nur sinnvoll, wenn die gesparte Suche, bessere Vorbereitung und geringere Unsicherheit den Aufwand für seine Pflege rechtfertigen.
-
-## Anonymisierter Pilot
-
-Ein erster Pilot kann die allgemeinen Erfahrungen aus dem vertraulichen Praxisbeispiel nutzen, ohne interne Inhalte zu veröffentlichen.
-
-Zuerst wird eine begrenzte Grundaufnahme als Projektgedächtnis bereitgestellt. Danach nutzen zwei aufeinanderfolgende reale Aufgaben dieses Wissen. Gemessen wird, welche Einstiegspunkte gefunden wurden, welche Aussagen erneut geprüft werden mussten, welches Wissen fehlte und welche neuen Erkenntnisse dauerhaft übernommen wurden.
-
-Besonders wichtig ist die Wiederverwendung vorhandener Lösungen. Der Pilot prüft deshalb auch, ob das Projektgedächtnis bestehende Zuständigkeiten, Muster und Erweiterungspunkte sichtbar macht. Dadurch sollen unnötige zweite Lösungen für dieselbe Verantwortung vermieden werden.
-
-Zusätzlich wird festgehalten, wie viel Suchzeit vermieden wurde und welcher Pflegeaufwand entstand. Der Pilot prüft damit nicht nur, ob das Modell verständlich klingt. Er prüft, ob es die Arbeit tatsächlich verbessert.
-
-## Rolle externer Systeme
-
-Externe Systeme und spätere Connectoren liefern Informationen und Belege.
-
-Sie können den Zugriff auf Quellen erleichtern. Sie werden dadurch nicht zur Quelle für Freigaben oder Entscheidungen. Ihre Daten müssen mit Herkunft, Zeitpunkt und Reichweite erfasst werden.
-
-Ein Connector darf auch nicht stillschweigend entscheiden, wie zuverlässig oder wichtig eine Aussage ist.
-
-## Schutz vertraulicher Informationen
-
-Ein Inventory Run kann vertrauliche Daten berühren.
-
-Vor dem Zugriff auf eine Quelle muss klar sein, welche Daten untersucht werden dürfen. Dasselbe gilt für die Weitergabe an externe Dienste oder Modelle.
-
-Öffentliche Beispiele dürfen keine internen Namen, Inhalte oder Projektdaten offenlegen. Erkenntnisse aus vertraulichen Projekten werden nur in allgemeiner Form verwendet.
-
-## Was dieser Aufbau noch nicht festlegt
-
-Dieser Entwurf entscheidet noch nicht über die folgenden Punkte.
-
-* technische Architektur
-* Speicherung der Daten
-* Dateiformate und Schemas
-* Auswahl von Connectoren
-* Bewertungsskalen
-* genaue Pflichtfelder
-* technische Prüfung von Belegen
-* technische Form des Projektkontextgraphen
-* Auswahl einer Graphdatenbank
-* Umsetzung als Plugin
-* Bedienung durch Menschen oder Agenten
-
-Diese Fragen gehören in einen späteren freigegebenen Scope.
-
-## Offene Fragen
-
-1. Wie genau muss der Auftrag für verschiedene Anlässe beschrieben werden?
-2. Welche Quellen sind für eine erste belastbare Fassung mindestens nötig?
-3. Wie wird die Verlässlichkeit eines Belegs verständlich beschrieben?
-4. Wer darf welche Teile des Inventory Report bestätigen?
-5. Wann gilt ein unbekannter Bereich als Risiko?
-6. Wie werden widersprüchliche Quellen behandelt?
-7. Wie wird eine frühere Bestandsaufnahme erneuert?
-8. Wie bleiben ältere Stände nachvollziehbar?
-9. Welche Darstellungen werden für welche Zielgruppen gebraucht?
-10. Welche Daten dürfen an externe Dienste oder Modelle gehen?
-11. Wann reicht eine kompakte Bestandsaufnahme aus?
-12. Wann braucht die Untersuchung mehr Tiefe?
-13. Welche Arten von Gegenständen und Beziehungen braucht ein erster Pilot?
-14. Wie werden widersprüchliche, veraltete und ersetzte Aussagen dargestellt?
-15. Wer darf eine fachliche Aussage im Projektkontextgraphen bestätigen?
-16. Wie werden vertrauliche Beziehungen geschützt?
-17. Wann braucht ein gewachsener Projektkontextgraph einen neuen Inventory Report?
-18. Welcher messbare Nutzen rechtfertigt die laufende Pflege?
-19. Welche Mindestangaben braucht der optionale Vertrag für das Projektgedächtnis?
-20. Nach welchen Regeln wird Wissen zwischen Projektgedächtnis und AGDF Context Graph getrennt?
-21. Wie wird verhindert, dass veraltetes Wissen ungeprüft in eine neue Aufgabe übernommen wird?
+- technische Architektur
+- Speicherung und Datenmodell
+- Dateiformate und Schemas
+- konkrete Connectoren
+- Bewertungsskalen
+- ausführbare Templates
+- technische Belegprüfung
+- Bedienung durch Menschen oder Agenten
+- Implementierung als Plugin
 
 ## Nächster Schritt
 
-Als Nächstes beschreibt ein eigener Entwurf den kleinen Pilotversuch. Er legt Aufgabenwahl, Beobachtungen, Ergebnisregeln und den Schutz vertraulicher Informationen fest.
-
-Das nächste Dokument ist das folgende.
+Der nächste Entwurf beschreibt einen Pilotversuch, der den Entscheidungsnutzen eines Inventory Report prüft.
 
 [03 Pilotversuch](03-pilotversuch.md)
