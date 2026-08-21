@@ -2,7 +2,7 @@
 
 ## Warum dieses Projekt existiert
 
-Projektbestandsaufnahmen entstehen oft unter Zeitdruck. Das geschieht etwa bei einer Projektübernahme, einer Modernisierung, einem Lieferproblem, einem Anbieterwechsel, einer Prüfung oder vor einer wichtigen Investition.
+Ausgangspunkt dieses Entwurfs ist eine Arbeitshypothese. Projektbestandsaufnahmen entstehen oft unter Zeitdruck. Das geschieht etwa bei einer Projektübernahme, einer Modernisierung, einem Lieferproblem, einem Anbieterwechsel, einer Prüfung oder vor einer wichtigen Investition.
 
 Die verfügbaren Informationen sind meist unvollständig. Sie liegen in verschiedenen Quellen.
 
@@ -52,9 +52,26 @@ Projektübernahme, Verantwortung, Nachweise, Unsicherheit und Freigaben sind nic
 
 Einige englische Fachbegriffe bleiben erhalten. Dazu gehören `Project Inventory`, `Evidence Register`, `Finding`, `Brownfield` und `Source of Truth`. Die Erklärung erfolgt zuerst auf Deutsch.
 
+## Lesart der Aussagen
+
+Diese Diskussion unterscheidet vier Arten eigener Aussagen.
+
+- Beobachtungen nennen, was in zugänglichen Quellen oder einem beschriebenen Beispiel festgestellt wurde.
+- Deutungen leiten daraus eine mögliche Bedeutung ab.
+- Vorgeschlagene Regeln beschreiben, wie Project Inventory nach diesem Entwurf arbeiten sollte.
+- Offene Fragen zeigen, was noch nicht entschieden oder belegt ist.
+
+Eine fehlende Beobachtung beweist nicht, dass etwas nicht vorhanden ist. Wenn keine verantwortliche Stelle gefunden wurde, bleibt offen, ob sie außerhalb des untersuchten Bereichs besteht.
+
 ## Kernthese
 
-Unternehmen brauchen für Entscheidungen klare Antworten auf fünf Fragen.
+Eine Bestandsaufnahme kann eine Entscheidung vorbereiten, die laufende Arbeit unterstützen oder ein dauerhaftes Projektgedächtnis aufbauen. Einer dieser Zwecke sollte im Auftrag als Hauptzweck erkennbar sein.
+
+Das fachliche Wissen ist der eigentliche Schatz eines Projekts. Dazu gehören Begriffe, Regeln, Ausnahmen, Zusammenhänge, frühere Entscheidungen und bekannte Grenzen. Quellcode, Dokumente, Tests, beobachtetes Verhalten und Aussagen von Menschen liefern Belege für dieses Wissen.
+
+Project Inventory rekonstruiert aus zugänglichen Projektspuren schrittweise einen evidenzbasierten Projektkontextgraphen. Er verbindet dauerhaft nutzbare Erkenntnisse mit ihren Quellen und bekannten Grenzen. Der Inventory Report macht einen geprüften Ausschnitt für einen konkreten Auftrag und Zeitpunkt sichtbar. Er ersetzt die bestehenden fachlichen Quellen nicht.
+
+Wenn eine Entscheidung vorbereitet werden soll, brauchen Unternehmen klare Antworten auf fünf Fragen.
 
 1. Was wurde tatsächlich beobachtet?
 2. Durch welche Evidenz ist die Aussage belegt?
@@ -76,13 +93,19 @@ Eine gute Bestandsaufnahme braucht nicht viele Dokumente. Sie braucht klare Gren
 
 Eine frühere Bestandsaufnahme eines großen und gewachsenen Softwareprojekts liefert einen wichtigen Praxisbezug für diesen Entwurf.
 
-In diesem Beispiel wurde umfangreiches Projektwissen aufgebaut. Dazu gehörten ein zentraler Einstieg, eine Karte des Repositorys, ein Katalog der Module, wichtige Abläufe, die Testlandschaft und eine Liste offener Fragen. Viele Aussagen waren direkt mit Dateien und Zeilen im Repository belegt. Fehlende Quellen wurden ausdrücklich genannt.
+In diesem Beispiel wurde zunächst eine breite Orientierung aufgebaut. Dazu gehörten ein zentraler Einstieg, eine Karte des Repositorys, ein Katalog der Module, wichtige Abläufe, die Testlandschaft und eine Liste offener Fragen. Viele Aussagen waren direkt mit Dateien und Zeilen im Repository belegt. Fehlende Quellen wurden ausdrücklich genannt.
+
+Danach wurde das Wissen durch konkrete Aufgaben und Fehler weiter vertieft. Untersucht wurden die jeweils betroffenen Module, Abhängigkeiten, Laufzeitwege und Tests. Dauerhaft nutzbare Erkenntnisse flossen in das Projektgedächtnis zurück. Flüchtige Beobachtungen blieben beim jeweiligen Vorgang.
 
 Damit entstand eine gute technische Grundlage. Trotzdem fehlte ein gemeinsamer Bericht für die Bestandsaufnahme. Anlass, Zielgruppe, Untersuchungsgrenzen und die vorzubereitende Entscheidung waren nicht an einer Stelle zusammengeführt. Auch die wichtigsten Ergebnisse, Risiken, Empfehlungen und die Prüfung durch verantwortliche Menschen waren nicht als ein gemeinsames Ergebnis sichtbar.
 
-Daraus folgt eine wichtige Unterscheidung. Gepflegtes Projektwissen ist ein wesentlicher Teil einer Bestandsaufnahme. Es ist aber noch nicht die vollständige Bestandsaufnahme.
+Daraus folgt eine wichtige Unterscheidung. Gepflegtes Projektwissen bewahrt den eigentlichen Wert. Es ist aber noch nicht der Bericht über eine konkrete Bestandsaufnahme.
 
-Eine Project Inventory muss vorhandenes Wissen für einen klaren Auftrag auswerten. Sie muss zeigen, was untersucht wurde, was als belegt gilt, was offen bleibt und welche Entscheidung damit vorbereitet werden kann.
+Eine Project Inventory muss vorhandenes Wissen für einen erkennbaren Hauptzweck auswerten. Sie muss zeigen, was untersucht wurde, was als belegt gilt, was offen bleibt und wofür die Erkenntnisse genutzt werden können.
+
+Aus dem Beispiel lässt sich eine weitere Idee ableiten. Die vorhandenen Dokumente bilden bereits einen Projektkontextgraphen in dokumentarischer Form. Module, Abläufe, Tests, Quellen und offene Fragen sind durch Verweise und beschriebene Abhängigkeiten miteinander verbunden.
+
+Eine Bestandsaufnahme muss nicht zuerst vollständig werden und danach enden. Sie kann mit einer breiten Grundaufnahme beginnen. Reale Aufgaben vertiefen anschließend die betroffenen Bereiche. Jede Aufgabe kann dadurch neben ihrem eigentlichen Ergebnis auch geprüftes Projektwissen liefern.
 
 ## Prinzipien
 
@@ -94,27 +117,41 @@ Eine überzeugende Zusammenfassung oder Präsentation ersetzt keine überprüfba
 
 Beobachtete Fakten, Interpretationen, Unbekanntes und Empfehlungen dürfen nicht stillschweigend miteinander vermischt werden.
 
+Eine Verbindung im Projektkontextgraphen ist selbst eine Aussage. Ihre Darstellung macht sie noch nicht zur Tatsache. Herkunft, Reichweite, Aussageklasse und Prüfstatus bleiben sichtbar.
+
 ### 3. Unbekanntes bleibt sichtbar
 
 Fehlender Zugriff, widersprüchliche Quellen und nicht beobachtete Laufzeitbedingungen werden nicht durch Annahmen geschlossen.
 
-### 4. Eine belastbare Bestandsaufnahme ist die Quelle der Wahrheit
+### 4. Der Inventory Report führt die Bewertung des Run
 
-Eine Zusammenfassung für das Management, eine Architekturansicht, ein Maßnahmenkatalog und eine Präsentation sind abgeleitete Darstellungen. Neue Bewertungen und Schlüsse gehören immer zurück in die Bestandsaufnahme.
+Das fachliche Wissen bleibt in seinen verantwortlichen Quellen und im gepflegten Projektgedächtnis. Der Inventory Report führt die Bewertung für den jeweiligen Auftrag. Eine Zusammenfassung für das Management, eine Architekturansicht, ein Maßnahmenkatalog und eine Präsentation werden daraus abgeleitet.
 
-### 5. Tiefe ist proportional
+### 5. Das Projektgedächtnis wächst mit der Arbeit
+
+Vorgeschlagene Regel: Eine Grundaufnahme schafft Orientierung über das Projekt. Konkrete Aufgaben vertiefen anschließend die jeweils betroffenen Bereiche. Dauerhaft nutzbare Erkenntnisse werden geprüft und in das Projektgedächtnis übernommen. Flüchtige Beobachtungen bleiben beim jeweiligen Vorgang.
+
+Der Inventory Report bleibt trotzdem eine Bestandsaufnahme für einen bestimmten Auftrag und Zeitpunkt. Er darf nicht allein deshalb als aktuell gelten, weil das Projektgedächtnis später weiter gewachsen ist.
+
+### 6. Tiefe ist proportional
 
 Der Anlass, das Risiko und die verfügbaren Belege bestimmen den Umfang. Eine kleine Übergabe braucht weniger Tiefe als eine Modernisierung in einem geregelten Umfeld oder eine Prüfung eines ganzen Unternehmens.
 
-### 6. AGDF behält die Verantwortung für die Steuerung
+### 7. AGDF behält die Verantwortung für die Steuerung
 
 Project Inventory soll Gates, Freigaben, Run State, Evidenzgrenzen und Delivery-Übergänge nicht parallel neu implementieren.
 
-### 7. Empfehlungen sind keine Entscheidungen
+### 8. Empfehlungen sind keine Entscheidungen
 
 Vorgeschlagene Handlungen werden aus Fakten, Interpretationen und Risiken abgeleitet. Sie sind weder bereits beschlossene Maßnahmen noch Umsetzungsfreigaben.
 
-### 8. Nutzen muss sich im realen Einsatz zeigen
+### 9. Eine Bestandsaufnahme setzt keine Bereinigung voraus
+
+Vorgeschlagene Regel: Eine Bestandsaufnahme darf ohne belegten Auftrag zur Bereinigung abgeschlossen werden. Der Bericht hält fest, ob ein Budget bestätigt wurde, ob eine verantwortliche Stelle benannt ist und ob eine Umsetzung beauftragt wurde. Nicht gefunden, nicht bestätigt und nicht vorhanden bleiben verschiedene Aussagen.
+
+Die Einordnung als Kostenstelle oder Profit Center ist nur Kontext. Ohne weitere Belege erklärt sie weder Prioritäten noch Beweggründe.
+
+### 10. Nutzen muss sich im realen Einsatz zeigen
 
 Der Ansatz ist erst belastbar, wenn Pilotversuche zeigen, dass er Unsicherheit reduziert, Übergaben verbessert oder Entscheidungen nachvollziehbarer macht.
 
@@ -136,10 +173,13 @@ AGDF Project Inventory ist in der vorgeschlagenen Form Folgendes nicht.
 - kein Nachweis für das Verhalten im Betrieb allein auf Basis von Daten aus dem Repository
 - kein Werkzeug für PowerPoint mit Begriffen aus der Governance
 - keine Neuimplementierung von AGDF Core
+- kein vollständiges oder automatisch aktuelles Abbild des Projekts
+- kein Nachweis für Absichten oder Beweggründe ohne eigene Belege
+- keine Festlegung auf eine Graphdatenbank oder ein technisches Graphformat
 
 ## Offene Fragen
 
-1. Welche Entscheidungen sollen durch eine Project Inventory konkret besser werden?
+1. Welchem Hauptzweck soll eine Project Inventory dienen?
 2. Wer ist die primäre Zielgruppe und wer verantwortet die Abnahme?
 3. Welche Belege braucht eine belastbare Bestandsaufnahme mindestens?
 4. Wie werden Aktualität, Herkunft und Reichweite einer Evidenz bewertet?
@@ -151,6 +191,11 @@ AGDF Project Inventory ist in der vorgeschlagenen Form Folgendes nicht.
 10. Wie kann eine Bestandsaufnahme später reproduzierbar aktualisiert und mit früheren Ständen verglichen werden?
 11. Welche Teile des Ergebnisses sollten versioniert, bestätigt oder ausdrücklich verworfen werden?
 12. Woran lässt sich in realen Projekten messen, ob der Ansatz tatsächlich bessere Entscheidungen ermöglicht?
+13. Welchen eigenständigen Nutzen liefert eine Bestandsaufnahme, wenn keine Bereinigung beauftragt wird?
+14. Nach welchen Regeln werden Erkenntnisse aus späteren Aufgaben in das Projektgedächtnis übernommen?
+15. Welche Arten von Gegenständen und Beziehungen braucht ein erster Pilot?
+16. Wie werden widersprüchliche, veraltete oder ersetzte Aussagen im Projektkontextgraphen sichtbar?
+17. Welche Beziehungen enthalten vertrauliche Informationen und brauchen einen besonderen Schutz?
 
 ## Nächster Schritt
 
