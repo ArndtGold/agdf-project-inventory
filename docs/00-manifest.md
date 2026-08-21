@@ -84,8 +84,6 @@ Daraus folgt eine wichtige Unterscheidung. Gepflegtes Projektwissen ist ein wese
 
 Eine Project Inventory muss vorhandenes Wissen für einen klaren Auftrag auswerten. Sie muss zeigen, was untersucht wurde, was als belegt gilt, was offen bleibt und welche Entscheidung damit vorbereitet werden kann.
 
-Das Praxisbeispiel bleibt vertraulich. Dieser Entwurf übernimmt daraus nur allgemeine Erkenntnisse. Namen, Projektdaten und interne Inhalte werden nicht veröffentlicht.
-
 ## Prinzipien
 
 ### 1. Evidenz vor Darstellung
