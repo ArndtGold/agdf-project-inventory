@@ -188,6 +188,25 @@ Die Verantwortung ist wie folgt aufgeteilt.
 
 Der Projektkontextgraph wird dadurch nicht zu einer zweiten Steuerung. Er bewahrt fachlichen und technischen Kontext. AGDF bleibt für Scope, Run State, Evidenzgrenzen, Freigaben und kontrollierte Übergänge verantwortlich.
 
+## Gemeinsames Projektgedächtnis
+
+Der gemeinsame Rahmen für AGDF und Project Inventory ist ein optionales Projektgedächtnis.
+
+Project Inventory ermittelt und ordnet dauerhaft nutzbares Wissen. Dazu gehören fachliche Begriffe, Regeln, Module, Abläufe, Tests, Entscheidungen, Risiken und offene Fragen. Jede Aussage bleibt mit ihren Belegen, ihrem Stand und ihren bekannten Grenzen verbunden.
+
+AGDF kann dieses Wissen bei einer konkreten Aufgabe als Orientierung nutzen. Die betroffenen Aussagen werden erneut an den verantwortlichen Quellen geprüft. Das Projektgedächtnis ist deshalb eine belastbare Einstiegshilfe, aber keine automatische Wahrheit.
+
+Nach der Aufgabe werden neue Erkenntnisse geordnet.
+
+1. Wissen nur für den Vorgang bleibt beim Vorgang.
+2. Dauerhaft nutzbares Projektwissen fließt nach der Prüfung in das Projektgedächtnis zurück.
+3. Entscheidungen, Risiken, Regeln und Folgen für spätere Veränderungen können zusätzlich in den AGDF Context Graph aufgenommen werden.
+4. Änderungen an der verantwortlichen Quelle werden dort vorgenommen und nicht nur im Projektgedächtnis beschrieben.
+
+Für die Verbindung reicht zunächst ein kleiner Vertrag. Er beschreibt den Ort des Projektgedächtnisses, seinen Geltungsbereich, die verantwortliche Stelle, den Stand der letzten Prüfung und bekannte Lücken. Er legt außerdem fest, wie neue Erkenntnisse vorgeschlagen und bestätigt werden.
+
+Dieser Vertrag soll optional bleiben. AGDF muss ohne Project Inventory nutzbar sein. Project Inventory kann ebenfalls Bestandsaufnahmen durchführen, ohne daraus einen gesteuerten Veränderungslauf zu machen.
+
 ## Anerkannte fachliche Bezugspunkte
 
 Die vorgeschlagene Verbindung ist neu für diesen Entwurf. Ihre einzelnen Grundlagen sind anerkannt.
@@ -214,6 +233,8 @@ Dafür soll AGDF die grundlegenden Regeln bereitstellen.
 - kontrollierter Übergang von Findings zu Veränderungsvorhaben
 - dokumentierte Qualitäts- und Abnahmeentscheidungen
 
+Diese Steuerung beantwortet noch nicht, welche vorhandene Lösung zu einer Aufgabe passt. Dafür braucht die KI belastbaren Projektkontext. Das Projektgedächtnis macht vorhandene Zuständigkeiten, Muster, Abläufe, Tests und Erweiterungspunkte auffindbar. So kann eine erlaubte Änderung innerhalb der bestehenden Lösung erfolgen, statt eine unnötige zweite Lösung zu schaffen.
+
 Ohne eine passende Installation von AGDF können einzelne Vorlagen und Ideen weiter als Orientierung dienen. Ein durch AGDF kontrollierter Inventory Run ist dann aber nicht gesichert. Eine spätere Umsetzung soll diese Abhängigkeit klar prüfen. Sie soll bei einer fehlenden oder unpassenden Version von AGDF mit einer klaren Meldung enden.
 
 Diese Aufteilung ist ein Vorschlag und noch kein verabschiedetes oder implementiertes Produktdesign.
@@ -227,6 +248,8 @@ Ein belastbarer Ansatz könnte Unternehmen bei den folgenden Aufgaben helfen.
 - bekannte Fakten und bloße Annahmen sichtbar zu trennen
 - Wissenslücken früh zu erkennen und gezielt zu schließen
 - bereits untersuchte Zusammenhänge bei späteren Aufgaben wiederzuverwenden
+- vorhandene Lösungen vor einer Neuanlage zu erkennen
+- unnötige parallele Verantwortungen bei Änderungen mit KI zu vermeiden
 - technische Erkenntnisse in entscheidungsfähige Managementinformationen zu übersetzen
 - wiederholte Bestandsaufnahmen vergleichbarer zu machen
 - externe Beratungsergebnisse transparenter und überprüfbarer zu gestalten

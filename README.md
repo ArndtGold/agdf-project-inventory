@@ -41,6 +41,10 @@ Der Entwurf geht von einer Arbeitshypothese aus. Ein eigener Auftrag für Aufrä
 
 Der Entwurf fragt deshalb nach klaren Regeln. Die Herkunft, die Reichweite und die Unsicherheit von Aussagen müssen sichtbar bleiben. So kann aus fachlichen und technischen Beobachtungen ein prüfbarer Stand für Entscheidungen, laufende Arbeit und dauerhaftes Projektwissen entstehen.
 
+Bei Änderungen mit KI besteht ein weiteres Risiko. Ohne ausreichenden Projektkontext kann eine neue Lösung entstehen, obwohl bereits eine passende Lösung oder ein verantwortlicher Erweiterungspunkt vorhanden ist. Das kann unnötige Änderungen und parallele Verantwortungen erzeugen.
+
+Project Inventory soll die KI nicht nur begrenzen. Es soll ihr helfen, das bestehende Projekt zu verstehen. AGDF steuert, ob eine Änderung zulässig ist. Das Projektgedächtnis hilft zu erkennen, wo und wie sie in der bestehenden Lösung erfolgen sollte.
+
 ## Was der Entwurf vorschlägt
 
 Project Inventory ist hier keine einfache Liste von Dateien, Technik oder Abhängigkeiten. Es ist ein geordnetes Bild des Projekts. Beobachtete Fakten, Deutungen, unbekannte Bereiche und Empfehlungen werden mit Belegen verbunden.
@@ -53,6 +57,10 @@ Bestehende fachliche Quellen bleiben für ihr Wissen verantwortlich. Der Invento
 
 Der Entwurf ist als ergänzendes Plugin für [AGDF](https://agdf.iself.eu/) vorgesehen. AGDF soll die Regeln für Freigaben, Belege und Lieferung bereitstellen. Project Inventory soll diese Regeln nicht ein zweites Mal aufbauen.
 
+Beide Projekte können durch ein gemeinsames Projektgedächtnis zusammenarbeiten. Project Inventory baut Wissen aus belegten Projektspuren auf und pflegt es. AGDF nutzt den passenden Ausschnitt für eine konkrete Aufgabe und lässt wichtige Aussagen erneut an den verantwortlichen Quellen prüfen. Neue dauerhaft nutzbare Erkenntnisse können danach in das Projektgedächtnis zurückfließen.
+
+Das Projektgedächtnis ist kein Ersatz für die verantwortlichen Projektquellen. Der AGDF Context Graph bleibt ebenfalls getrennt. Er enthält nur Wissen, das für gesteuerte Veränderungen und spätere Lieferentscheidungen wichtig ist.
+
 Eine allgemeine Projektbestandsaufnahme ist auch ohne AGDF möglich. Ein durch AGDF gesteuerter Inventory Run braucht dagegen eine passende Installation von AGDF.
 
 ## Dokumente
@@ -62,6 +70,7 @@ Folgende Reihenfolge ist empfohlen.
 1. [00 Manifest](docs/00-manifest.md)
 2. [01 Überblick](docs/01-project-inventory-ueberblick.md)
 3. [02 Aufbau und Verantwortung](docs/02-aufbau-und-verantwortung.md)
+4. [03 Pilotversuch](docs/03-pilotversuch.md)
 
 ## Welche Fragen sind interessant?
 

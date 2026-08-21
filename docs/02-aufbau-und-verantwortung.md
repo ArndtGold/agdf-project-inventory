@@ -268,6 +268,94 @@ Dazu gehören.
 
 Project Inventory entscheidet nicht allein über Freigaben, Umsetzung oder Lieferung.
 
+## Gemeinsamer Rahmen beider Projekte
+
+Der gemeinsame Rahmen für AGDF und Project Inventory ist das Projektgedächtnis. Die Projekte werden dafür nicht zusammengelegt. Sie arbeiten über eine klare Vereinbarung zusammen.
+
+Die vorgeschlagene Aufteilung besteht aus drei Teilen.
+
+### Projektgedächtnis
+
+Das Projektgedächtnis enthält dauerhaft nutzbares Wissen über das Projekt. Project Inventory hilft dabei, dieses Wissen aus zugänglichen Spuren zu ermitteln, mit Belegen zu verbinden und geordnet zu pflegen.
+
+Die verantwortlichen fachlichen und technischen Quellen bleiben maßgeblich. Das Projektgedächtnis ersetzt weder Quellcode noch Tests, Dokumente, Entscheidungen oder Aussagen verantwortlicher Menschen.
+
+### Gesteuerte Veränderung
+
+AGDF steuert eine konkrete Aufgabe oder Veränderung. Dazu gehören Auftrag, Freigaben, Prüfung, Umsetzung und Abschluss.
+
+AGDF darf vorhandenes Projektwissen als Orientierung verwenden. Aussagen über den betroffenen Bereich werden für die konkrete Aufgabe erneut an den verantwortlichen Quellen geprüft. Eine ältere Aussage wird nicht allein deshalb übernommen, weil sie im Projektgedächtnis steht.
+
+### AGDF Context Graph
+
+Der AGDF Context Graph bleibt kleiner als das Projektgedächtnis. Er nimmt nur Erkenntnisse auf, die für gesteuerte Veränderungen und spätere Lieferentscheidungen wichtig bleiben. Dazu können Entscheidungen, Risiken, Regeln, Abhängigkeiten und noch zu erfüllende Bedingungen gehören.
+
+Ein Modul, ein Fachbegriff oder ein Test gehört nicht automatisch in den AGDF Context Graph. Im Projektgedächtnis kann dieses Wissen trotzdem wichtig sein.
+
+## Zwei verschiedene Schutzwirkungen
+
+AGDF und das Projektgedächtnis schützen das Projekt auf unterschiedliche Weise.
+
+AGDF steuert Auftrag, Freigaben, Prüfung und Abschluss. Es begrenzt, welche Veränderung zulässig ist.
+
+Das Projektgedächtnis hilft der KI, das bestehende Projekt zu verstehen. Es macht verantwortliche Lösungen, Muster, Abläufe, Abhängigkeiten und Tests auffindbar. Dadurch kann eine Änderung am vorhandenen Erweiterungspunkt erfolgen.
+
+Ein Gate allein zeigt nicht automatisch die richtige Stelle für eine Änderung. Projektwissen allein erteilt keine Freigabe. Erst beide Wirkungen zusammen unterstützen eine kontrollierte und anschlussfähige Arbeit mit KI.
+
+Vor einer neuen Lösung wird deshalb geprüft.
+
+1. Gibt es bereits eine Lösung für dieselbe Verantwortung?
+2. Welche Stelle ist für eine Erweiterung vorgesehen?
+3. Welche Muster und Regeln gelten dort?
+4. Welche Abhängigkeiten und Tests müssen erhalten bleiben?
+5. Würde die neue Lösung eine parallele Verantwortung schaffen?
+
+## Arbeitskreislauf
+
+Der vorgeschlagene Kreislauf verbindet Bestandsaufnahme und reale Arbeit.
+
+1. Project Inventory schafft eine erste Orientierung.
+2. Das Projektgedächtnis hält belegtes Wissen und bekannte Lücken fest.
+3. Ein AGDF Lauf liest den passenden Ausschnitt für eine konkrete Aufgabe.
+4. Betroffene Aussagen werden an den verantwortlichen Quellen geprüft.
+5. Die Aufgabe liefert neben ihrem eigentlichen Ergebnis neue Erkenntnisse.
+6. Dauerhaft nutzbares Wissen fließt nach der Prüfung in das Projektgedächtnis zurück.
+7. Wissen mit Bedeutung für weitere Veränderungen kann zusätzlich in den AGDF Context Graph übernommen werden.
+
+Damit beginnt die nächste Aufgabe nicht wieder bei null. Das Projektgedächtnis wird trotzdem nicht ungeprüft als aktuell behandelt.
+
+## Kleiner Vertrag für das Projektgedächtnis
+
+AGDF muss nicht festlegen, wie das Projektgedächtnis technisch gespeichert wird. Für die Zusammenarbeit reichen zunächst wenige Angaben.
+
+* Ort des Projektgedächtnisses
+* untersuchtes Projekt und Geltungsbereich
+* verantwortliche Stelle
+* verwendete Arten von Quellen
+* Stand der letzten Prüfung
+* bekannte Lücken und Grenzen
+* Regeln für neue oder geänderte Aussagen
+
+Dieser Vertrag bleibt optional. AGDF muss ohne Project Inventory funktionieren. Project Inventory darf ebenfalls unabhängig genutzt werden, wenn nur eine Bestandsaufnahme oder ein Projektgedächtnis gebraucht wird.
+
+## Pflege durch reale Arbeit
+
+Ein dauerhaftes Projektgedächtnis darf nicht von einem großen eigenen Aufräumprojekt abhängen. In vielen Projekten gibt es dafür weder einen klaren Auftrag noch eine verantwortliche Stelle.
+
+Die Pflege wird deshalb mit realen Aufgaben verbunden. Jede Aufgabe prüft nur den betroffenen Bereich. Sie übernimmt dauerhaft nutzbare Erkenntnisse und macht veraltete oder widersprüchliche Aussagen sichtbar.
+
+Der Aufwand muss beobachtet werden. Ein Projektgedächtnis ist nur sinnvoll, wenn die gesparte Suche, bessere Vorbereitung und geringere Unsicherheit den Aufwand für seine Pflege rechtfertigen.
+
+## Anonymisierter Pilot
+
+Ein erster Pilot kann die allgemeinen Erfahrungen aus dem vertraulichen Praxisbeispiel nutzen, ohne interne Inhalte zu veröffentlichen.
+
+Zuerst wird eine begrenzte Grundaufnahme als Projektgedächtnis bereitgestellt. Danach nutzen zwei aufeinanderfolgende reale Aufgaben dieses Wissen. Gemessen wird, welche Einstiegspunkte gefunden wurden, welche Aussagen erneut geprüft werden mussten, welches Wissen fehlte und welche neuen Erkenntnisse dauerhaft übernommen wurden.
+
+Besonders wichtig ist die Wiederverwendung vorhandener Lösungen. Der Pilot prüft deshalb auch, ob das Projektgedächtnis bestehende Zuständigkeiten, Muster und Erweiterungspunkte sichtbar macht. Dadurch sollen unnötige zweite Lösungen für dieselbe Verantwortung vermieden werden.
+
+Zusätzlich wird festgehalten, wie viel Suchzeit vermieden wurde und welcher Pflegeaufwand entstand. Der Pilot prüft damit nicht nur, ob das Modell verständlich klingt. Er prüft, ob es die Arbeit tatsächlich verbessert.
+
 ## Rolle externer Systeme
 
 Externe Systeme und spätere Connectoren liefern Informationen und Belege.
@@ -322,7 +410,14 @@ Diese Fragen gehören in einen späteren freigegebenen Scope.
 16. Wie werden vertrauliche Beziehungen geschützt?
 17. Wann braucht ein gewachsener Projektkontextgraph einen neuen Inventory Report?
 18. Welcher messbare Nutzen rechtfertigt die laufende Pflege?
+19. Welche Mindestangaben braucht der optionale Vertrag für das Projektgedächtnis?
+20. Nach welchen Regeln wird Wissen zwischen Projektgedächtnis und AGDF Context Graph getrennt?
+21. Wie wird verhindert, dass veraltetes Wissen ungeprüft in eine neue Aufgabe übernommen wird?
 
 ## Nächster Schritt
 
-Als Nächstes kann diskutiert werden, wie ein kleiner Pilotversuch aussehen soll. Dafür braucht es einen konkreten Anlass, ein geeignetes Projekt, eine Zielgruppe und eine prüfbare Erfolgsfrage.
+Als Nächstes beschreibt ein eigener Entwurf den kleinen Pilotversuch. Er legt Aufgabenwahl, Beobachtungen, Ergebnisregeln und den Schutz vertraulicher Informationen fest.
+
+Das nächste Dokument ist das folgende.
+
+[03 Pilotversuch](03-pilotversuch.md)

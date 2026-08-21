@@ -133,25 +133,35 @@ Vorgeschlagene Regel: Eine Grundaufnahme schafft Orientierung über das Projekt.
 
 Der Inventory Report bleibt trotzdem eine Bestandsaufnahme für einen bestimmten Auftrag und Zeitpunkt. Er darf nicht allein deshalb als aktuell gelten, weil das Projektgedächtnis später weiter gewachsen ist.
 
-### 6. Tiefe ist proportional
+### 6. Projektkontext schützt vor unnötigen KI Änderungen
+
+Vorgeschlagene Regel: Vor einer neuen Lösung muss nach bestehenden Lösungen, Zuständigkeiten, Mustern und Erweiterungspunkten gesucht werden. Das Projektgedächtnis unterstützt diese Suche. Wichtige Aussagen werden trotzdem erneut an den verantwortlichen Quellen geprüft.
+
+AGDF und Projektgedächtnis haben dabei verschiedene Aufgaben. AGDF steuert, ob eine Änderung zulässig ist. Das Projektgedächtnis hilft der KI zu erkennen, wo und wie die Änderung in das bestehende Projekt passt.
+
+Nicht weniger KI Tätigkeit ist der entscheidende Schutz. Entscheidend sind ausreichender Projektkontext, klare Verantwortung, belegte Einstiegspunkte und die Pflicht zur Wiederverwendung.
+
+### 7. Tiefe ist proportional
 
 Der Anlass, das Risiko und die verfügbaren Belege bestimmen den Umfang. Eine kleine Übergabe braucht weniger Tiefe als eine Modernisierung in einem geregelten Umfeld oder eine Prüfung eines ganzen Unternehmens.
 
-### 7. AGDF behält die Verantwortung für die Steuerung
+### 8. AGDF behält die Verantwortung für die Steuerung
 
 Project Inventory soll Gates, Freigaben, Run State, Evidenzgrenzen und Delivery-Übergänge nicht parallel neu implementieren.
 
-### 8. Empfehlungen sind keine Entscheidungen
+Vorgeschlagene Regel: Ein gemeinsames Projektgedächtnis verbindet beide Projekte, ohne ihre Verantwortung zu vermischen. Project Inventory pflegt belegtes Projektwissen. AGDF nutzt es für konkrete Aufgaben, prüft betroffene Aussagen erneut und steuert die Veränderung. Der AGDF Context Graph übernimmt daraus nur Wissen, das für spätere Lieferentscheidungen wichtig bleibt.
+
+### 9. Empfehlungen sind keine Entscheidungen
 
 Vorgeschlagene Handlungen werden aus Fakten, Interpretationen und Risiken abgeleitet. Sie sind weder bereits beschlossene Maßnahmen noch Umsetzungsfreigaben.
 
-### 9. Eine Bestandsaufnahme setzt keine Bereinigung voraus
+### 10. Eine Bestandsaufnahme setzt keine Bereinigung voraus
 
 Vorgeschlagene Regel: Eine Bestandsaufnahme darf ohne belegten Auftrag zur Bereinigung abgeschlossen werden. Der Bericht hält fest, ob ein Budget bestätigt wurde, ob eine verantwortliche Stelle benannt ist und ob eine Umsetzung beauftragt wurde. Nicht gefunden, nicht bestätigt und nicht vorhanden bleiben verschiedene Aussagen.
 
 Die Einordnung als Kostenstelle oder Profit Center ist nur Kontext. Ohne weitere Belege erklärt sie weder Prioritäten noch Beweggründe.
 
-### 10. Nutzen muss sich im realen Einsatz zeigen
+### 11. Nutzen muss sich im realen Einsatz zeigen
 
 Der Ansatz ist erst belastbar, wenn Pilotversuche zeigen, dass er Unsicherheit reduziert, Übergaben verbessert oder Entscheidungen nachvollziehbarer macht.
 
