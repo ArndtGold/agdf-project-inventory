@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "product_version": "0.1.0",
+  "baseline_type": "exact_local_evidence_environment",
+  "hosts": {
+    "codex": {
+      "baseline_version": "0.145.0",
+      "discovery": "complete local plugin marketplace entry",
+      "activation": "explicit repository activation",
+      "status_evidence": ["plugin_list", "repository_activation", "fresh_session_observation"],
+      "structured_question": "host_capability_when_callable",
+      "fallback": "exact_text",
+      "limitations": [
+        "Files or plugin-list output do not prove fresh-session discovery.",
+        "Host permissions do not grant AGDF approval."
+      ]
+    },
+    "claude": {
+      "baseline_version": "2.1.193",
+      "discovery": "complete local plugin marketplace entry",
+      "activation": "explicit project or user enablement",
+      "status_evidence": ["plugin_list", "enabled_scope", "fresh_session_observation"],
+      "structured_question": "AskUserQuestion_when_safe",
+      "fallback": "exact_text",
+      "limitations": [
+        "Installed or enabled state does not prove fresh-session discovery.",
+        "Claude technical permissions do not grant AGDF approval."
+      ]
+    },
+    "opencode": {
+      "baseline_version": "1.18.3",
+      "discovery": "owned repository-local skill projection",
+      "activation": "owned repository configuration entry",
+      "status_evidence": ["projection", "configuration", "fresh_session_observation"],
+      "structured_question": "question_when_permission_allows",
+      "fallback": "exact_text",
+      "limitations": [
+        "The MVP adds no npm plugin, hook or subagent enforcement.",
+        "Projection and configuration do not prove fresh-session discovery."
+      ]
+    }
+  },
+  "shared_boundaries": [
+    "AGDF alone owns gates, approvals, Run State and delivery transitions.",
+    "Project Inventory owns only Inventory workflow and artefacts.",
+    "Repository, runtime, external-system and human evidence remain separate.",
+    "Human UAT cannot be populated from automated evidence."
+  ]
+}

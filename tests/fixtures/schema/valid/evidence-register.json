@@ -1,0 +1,1 @@
+{"schema_version":"1","register_id":"evidence-register-001","entries":[{"evidence_id":"ev-001","source_type":"repository_file","locator":"README.md","captured_at":"2026-08-21T12:00:00.000Z","lane":"repository","reach":"Discussion intent","limitation":"No runtime evidence","confidentiality":"public","access_state":"obtained"}]}

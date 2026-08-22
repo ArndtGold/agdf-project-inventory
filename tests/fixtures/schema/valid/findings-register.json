@@ -1,0 +1,1 @@
+{"schema_version":"1","register_id":"findings-register-001","statements":[{"statement_id":"obs-001","class":"observation","claim_type":"presence","text":"A README exists.","support_state":"supported","claim_lane":"repository","evidence_refs":["ev-001"],"impact":"low","review_state":"reviewed"}]}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "1",
+  "hosts": ["codex", "claude", "opencode"],
+  "normalized_fields": ["schema_version", "valid", "status", "diagnostic_codes", "statement_classes", "support_states", "epistemic_states", "question_requirement_sources", "blocker_codes", "retained_state_ids", "next_recovery_action_code", "report_digest"],
+  "excluded_host_fields": ["host", "skill_name", "package_path", "activation_path"],
+  "required_boundary": "AGDF authority and evidence-lane meaning remain identical on every host projection."
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/evidence-register-v1.json",
+  "title": "Project Inventory Evidence Register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "register_id", "entries"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "register_id": { "$ref": "#/$defs/id" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidence" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,79}$" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "source_type", "locator", "captured_at", "lane", "reach", "limitation", "confidentiality", "access_state"],
+      "properties": {
+        "evidence_id": { "$ref": "#/$defs/id" },
+        "source_type": { "enum": ["repository_file", "command_output", "external_record", "human_observation"] },
+        "locator": { "type": "string", "minLength": 1 },
+        "captured_at": { "type": "string", "format": "date-time" },
+        "lane": { "enum": ["repository", "runtime", "external_system", "human"] },
+        "reach": { "type": "string", "minLength": 1 },
+        "limitation": { "type": "string", "minLength": 1 },
+        "confidentiality": { "enum": ["public", "internal", "confidential", "restricted"] },
+        "access_state": { "enum": ["obtained", "inaccessible"] },
+        "access_attempt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["attempted_at", "outcome", "detail"],
+          "properties": {
+            "attempted_at": { "type": "string", "format": "date-time" },
+            "outcome": { "enum": ["denied", "unavailable", "failed"] },
+            "detail": { "type": "string", "minLength": 1 }
+          }
+        },
+        "content_digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "access_state": { "const": "inaccessible" } }, "required": ["access_state"] },
+          "then": { "required": ["access_attempt"], "properties": { "access_attempt": {}, "content_digest": false } },
+          "else": { "properties": { "access_attempt": false } }
+        }
+      ]
+    }
+  }
+}

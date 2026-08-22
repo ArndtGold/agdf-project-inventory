@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/management-view-index-v1.json",
+  "title": "Project Inventory Management View Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_report_id", "source_report_digest", "selected_statement_ids", "selected_statement_digests", "omitted_statement_ids", "management_view_digest"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "source_report_id": { "$ref": "#/$defs/id" },
+    "source_report_digest": { "$ref": "#/$defs/digest" },
+    "selected_statement_ids": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "selected_statement_digests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["statement_id", "statement_digest"],
+        "properties": {
+          "statement_id": { "$ref": "#/$defs/id" },
+          "statement_digest": { "$ref": "#/$defs/digest" }
+        }
+      }
+    },
+    "omitted_statement_ids": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "management_view_digest": { "$ref": "#/$defs/digest" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,79}$" },
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

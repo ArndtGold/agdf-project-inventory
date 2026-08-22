@@ -1,0 +1,1 @@
+{"schema_version":"1","intake_id":"intake-001","decision":"Decide next phase.","audience":["Owner"],"scope":["Repository"],"exclusions":[],"source_boundary":["."],"time_boundary":"2026-08-21","review_owner":"Reviewer","permitted_unknowns":[],"confidentiality":"internal"}

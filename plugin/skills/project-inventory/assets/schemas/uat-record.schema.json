@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/uat-record-v1.json",
+  "title": "Project Inventory Human UAT Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "host", "product_version", "host_version", "agdf_version", "activation_scope", "invoked_intent", "observed_behavior", "human_decision", "observer", "observed_at"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "host": { "enum": ["codex", "claude", "opencode"] },
+    "product_version": { "const": "0.1.0" },
+    "host_version": { "type": "string", "minLength": 1 },
+    "agdf_version": { "type": "string", "minLength": 1 },
+    "activation_scope": { "type": "string", "minLength": 1 },
+    "invoked_intent": { "type": "string", "minLength": 1 },
+    "observed_behavior": { "type": "string", "minLength": 1 },
+    "human_decision": { "enum": ["accept", "revise", "reject"] },
+    "observer": { "type": "string", "minLength": 1 },
+    "observed_at": { "type": "string", "format": "date-time" }
+  }
+}

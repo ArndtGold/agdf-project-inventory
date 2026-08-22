@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/report-index-v1.json",
+  "title": "Project Inventory Report Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "report_id", "source_digests", "included_statement_ids", "statement_projections", "sections", "report_digest"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "report_id": { "$ref": "#/$defs/id" },
+    "source_digests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intake", "evidence", "findings"],
+      "properties": {
+        "intake": { "$ref": "#/$defs/digest" },
+        "evidence": { "$ref": "#/$defs/digest" },
+        "findings": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "included_statement_ids": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "statement_projections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["statement_id", "rendered_text", "statement_digest", "epistemic_state"],
+        "properties": {
+          "statement_id": { "$ref": "#/$defs/id" },
+          "rendered_text": { "type": "string", "minLength": 1 },
+          "statement_digest": { "$ref": "#/$defs/digest" },
+          "epistemic_state": { "enum": ["not_checked", "inaccessible", "evidence_of_absence", "conflicting", "supported", "partial", "missing"] }
+        }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_context", "scope", "evidence_coverage", "findings", "unknowns", "recommendations", "review_state", "limitations"],
+      "properties": {
+        "decision_context": { "const": true },
+        "scope": { "const": true },
+        "evidence_coverage": { "const": true },
+        "findings": { "const": true },
+        "unknowns": { "const": true },
+        "recommendations": { "const": true },
+        "review_state": { "const": true },
+        "limitations": { "const": true }
+      }
+    },
+    "report_digest": { "$ref": "#/$defs/digest" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,79}$" },
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

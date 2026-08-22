@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/findings-register-v1.json",
+  "title": "Project Inventory Findings And Gaps Register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "register_id", "statements"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "register_id": { "$ref": "#/$defs/id" },
+    "statements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/statement" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,79}$" },
+    "statement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement_id", "class", "claim_type", "text", "support_state", "claim_lane", "evidence_refs", "impact", "review_state"],
+      "properties": {
+        "statement_id": { "$ref": "#/$defs/id" },
+        "class": { "enum": ["observation", "interpretation", "unknown", "recommendation"] },
+        "claim_type": { "enum": ["presence", "absence", "other"] },
+        "text": { "type": "string", "minLength": 1 },
+        "support_state": { "enum": ["supported", "partial", "conflicting", "missing"] },
+        "claim_lane": { "enum": ["repository", "runtime", "external_system", "human"] },
+        "evidence_refs": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "impact": { "enum": ["low", "medium", "high", "unknown"] },
+        "review_state": { "enum": ["draft", "reviewed", "accepted", "rejected"] },
+        "unknown_reason": { "enum": ["not_checked", "inaccessible", "insufficient_evidence"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "class": { "const": "unknown" }, "support_state": { "const": "missing" } }, "required": ["class", "support_state"] },
+          "then": { "required": ["unknown_reason"], "properties": { "unknown_reason": {} } },
+          "else": { "properties": { "unknown_reason": false } }
+        },
+        {
+          "if": { "properties": { "unknown_reason": { "const": "not_checked" } }, "required": ["unknown_reason"] },
+          "then": { "properties": { "evidence_refs": { "type": "array", "maxItems": 0 } } }
+        },
+        {
+          "if": { "properties": { "unknown_reason": { "const": "inaccessible" } }, "required": ["unknown_reason"] },
+          "then": { "properties": { "evidence_refs": { "type": "array", "minItems": 1 } } }
+        }
+      ]
+    }
+  }
+}

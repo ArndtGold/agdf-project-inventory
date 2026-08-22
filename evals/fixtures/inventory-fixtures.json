@@ -1,0 +1,35 @@
+{
+  "schema_version": "1",
+  "fixtures": [
+    { "fixture_id": "PI-FX-001", "purpose": "complete synthetic project and approved scope", "expected_code": "PASS" },
+    { "fixture_id": "PI-FX-002", "purpose": "missing required Intake field", "expected_code": "PI_SCHEMA_INVALID" },
+    { "fixture_id": "PI-FX-003", "purpose": "finding references unknown evidence", "expected_code": "PI_EVIDENCE_REFERENCE_UNKNOWN" },
+    { "fixture_id": "PI-FX-004", "purpose": "two sources materially conflict", "expected_code": "CONFLICT_RETAINED" },
+    { "fixture_id": "PI-FX-005", "purpose": "repository evidence claims runtime behavior", "expected_code": "PI_EVIDENCE_LANE_OVERCLAIM" },
+    { "fixture_id": "PI-FX-006", "purpose": "package present with unknown host enablement and no runtime observation", "expected_code": "partial" },
+    { "fixture_id": "PI-FX-007", "purpose": "scope reference is unapproved or stale", "expected_code": "PI_SCOPE_RUN_STALE" },
+    { "fixture_id": "PI-FX-008", "purpose": "more than one AGDF validator is plausible", "expected_code": "PI_AGDF_AMBIGUOUS" },
+    { "fixture_id": "PI-FX-009", "purpose": "management view introduces a recommendation", "expected_code": "PI_MANAGEMENT_PARAPHRASE" },
+    { "fixture_id": "PI-FX-010", "purpose": "host entry or file lacks ownership marker", "expected_code": "conflict" },
+    { "fixture_id": "PI-FX-011", "purpose": "install fails after one owned mutation", "expected_code": "rolled_back" },
+    { "fixture_id": "PI-FX-012", "purpose": "AGDF validator version differs", "expected_code": "PI_AGDF_INCOMPATIBLE" },
+    { "fixture_id": "PI-FX-013", "purpose": "product version surfaces drift", "expected_code": "PI_VERSION_DRIFT" },
+    { "fixture_id": "PI-FX-014", "purpose": "corrected retry follows a failed candidate", "expected_code": "RETRY_PASS" }
+  ],
+  "revision_fixtures": [
+    { "fixture_id": "PI-R2-FX-001", "purpose": "validator output exposes no Inventory scope", "expected_code": "PI_SCOPE_RESOLUTION_MISSING" },
+    { "fixture_id": "PI-R2-FX-002", "purpose": "validator output exposes two Inventory scopes", "expected_code": "PI_SCOPE_RESOLUTION_AMBIGUOUS" },
+    { "fixture_id": "PI-R2-FX-003", "purpose": "scope approval revision is stale", "expected_code": "PI_SCOPE_APPROVAL_UNVERIFIED" },
+    { "fixture_id": "PI-R2-FX-004", "purpose": "legacy caller scope cannot supply authority", "expected_code": "PI_SCOPE_RESOLUTION_MISSING" },
+    { "fixture_id": "PI-R2-FX-005", "purpose": "AGDF command identities disagree", "expected_code": "PI_AGDF_IDENTITY_MISMATCH" },
+    { "fixture_id": "PI-R2-FX-006", "purpose": "condition was not checked", "expected_code": "not_checked" },
+    { "fixture_id": "PI-R2-FX-007", "purpose": "source access was denied", "expected_code": "inaccessible" },
+    { "fixture_id": "PI-R2-FX-008", "purpose": "obtained evidence proves absence", "expected_code": "evidence_of_absence" },
+    { "fixture_id": "PI-R2-FX-009", "purpose": "inaccessible evidence supports an observation", "expected_code": "PI_INACCESSIBLE_EVIDENCE_SUPPORT" },
+    { "fixture_id": "PI-R2-FX-010", "purpose": "material sources conflict", "expected_code": "conflicting" },
+    { "fixture_id": "PI-R2-FX-011", "purpose": "question has no approved provenance", "expected_code": "UNTRACEABLE_QUESTION_REJECTED" },
+    { "fixture_id": "PI-R2-FX-012", "purpose": "management statement text changes", "expected_code": "PI_MANAGEMENT_PARAPHRASE" },
+    { "fixture_id": "PI-R2-FX-013", "purpose": "three simultaneous blockers retain one action", "expected_code": "PI_SCOPE_RESOLUTION_MISSING" },
+    { "fixture_id": "PI-R2-FX-014", "purpose": "corrected candidate follows failed candidate", "expected_code": "RETRY_PASS" }
+  ]
+}

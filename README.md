@@ -56,6 +56,35 @@ Project Inventory verantwortet die Bestandsaufnahme. Dazu gehören Untersuchungs
 
 Eine allgemeine Projektbestandsaufnahme kann auch ohne AGDF stattfinden. Ein durch AGDF gesteuerter Inventory Run setzt eine passende AGDF Installation voraus.
 
+## Lokalen Plugin Kandidaten testen
+
+Der aktuelle Entwicklungsstand kann direkt aus diesem Repository für einen Host installiert werden:
+
+```text
+npm run install:codex
+npm run install:claude
+npm run install:opencode -- --repo <repository>
+```
+
+Die Befehle erstellen und prüfen das lokale Paket selbst. Ein separates `npm ci` oder ein eigener Build Befehl ist für diesen Test nicht erforderlich.
+
+Status und Entfernung folgen demselben Muster:
+
+```text
+npm run status:codex
+npm run uninstall:codex
+
+npm run status:claude
+npm run uninstall:claude
+
+npm run status:opencode -- --repo <repository>
+npm run uninstall:opencode -- --repo <repository>
+```
+
+Ein normales `npm install` installiert das Plugin nicht in einem Host. Nur der ausdrücklich gewählte `install:<host>` Befehl darf eine Host Installation oder Repository Projektion starten.
+
+Eine erfolgreiche Installation belegt zunächst nur den technischen Paketstatus. Sie bestätigt weder die Erkennung in einer neuen Sitzung noch einen passenden AGDF Run oder eine fachliche Abnahme.
+
 ## Abgrenzung zu Project Memory
 
 Ein dauerhaftes Projektgedächtnis kann später eine sinnvolle eigene Erweiterung werden. Es ist jedoch nicht das Kernprodukt dieses Entwurfs.

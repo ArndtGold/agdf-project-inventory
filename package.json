@@ -1,0 +1,46 @@
+{
+  "name": "agdf-project-inventory",
+  "version": "0.1.0",
+  "description": "Evidence-first, AGDF-controlled project inventory for Codex, Claude Code and OpenCode.",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "bin": {
+    "agdf-project-inventory": "bin/agdf-project-inventory.mjs"
+  },
+  "files": [
+    "bin/",
+    "plugin/",
+    "src/",
+    "scripts/",
+    "evals/uat/"
+  ],
+  "scripts": {
+    "build": "node scripts/build-package.mjs",
+    "validate": "node bin/agdf-project-inventory.mjs validate",
+    "check:source": "node scripts/check-source-integrity.mjs",
+    "generate:schemas": "node scripts/generate-schema-validators.mjs",
+    "install:codex": "node bin/agdf-project-inventory.mjs install --host codex",
+    "install:claude": "node bin/agdf-project-inventory.mjs install --host claude",
+    "install:opencode": "node bin/agdf-project-inventory.mjs install --host opencode",
+    "status:codex": "node bin/agdf-project-inventory.mjs status --host codex",
+    "status:claude": "node bin/agdf-project-inventory.mjs status --host claude",
+    "status:opencode": "node bin/agdf-project-inventory.mjs status --host opencode",
+    "uninstall:codex": "node bin/agdf-project-inventory.mjs uninstall --host codex",
+    "uninstall:claude": "node bin/agdf-project-inventory.mjs uninstall --host claude",
+    "uninstall:opencode": "node bin/agdf-project-inventory.mjs uninstall --host opencode",
+    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:package": "node --test tests/package/*.test.mjs",
+    "test:lifecycle": "node --test tests/lifecycle/*.test.mjs",
+    "test:evals": "node --test tests/evals/*.test.mjs",
+    "test:integration": "node --test tests/integration/*.test.mjs",
+    "test": "npm run validate && npm run test:unit && npm run test:package && npm run test:lifecycle && npm run test:evals && npm run test:integration"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

@@ -1,2 +1,7 @@
 .agdf/
 .idea/
+node_modules/
+generated/
+coverage/
+*.tgz
+.DS_Store

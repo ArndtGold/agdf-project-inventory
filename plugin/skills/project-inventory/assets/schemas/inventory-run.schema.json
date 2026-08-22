@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agdf.iself.eu/project-inventory/schemas/inventory-run-v1.json",
+  "title": "Project Inventory Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "inventory_run_id", "product_version", "agdf_run_id", "authority_context_ref", "authority_context_digest", "status", "created_at", "artifacts"],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "inventory_run_id": { "$ref": "#/$defs/id" },
+    "product_version": { "const": "0.1.0" },
+    "agdf_run_id": { "$ref": "#/$defs/id" },
+    "authority_context_ref": { "$ref": "#/$defs/path" },
+    "authority_context_digest": { "$ref": "#/$defs/digest" },
+    "status": { "enum": ["intake", "evidence", "assessment", "report_ready", "blocked", "complete"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_intake", "evidence_register", "findings_register", "inventory_report", "report_index"],
+      "properties": {
+        "assessment_intake": { "$ref": "#/$defs/path" },
+        "evidence_register": { "$ref": "#/$defs/path" },
+        "findings_register": { "$ref": "#/$defs/path" },
+        "inventory_report": { "$ref": "#/$defs/path" },
+        "report_index": { "$ref": "#/$defs/path" },
+        "management_view": { "$ref": "#/$defs/path" },
+        "management_view_index": { "$ref": "#/$defs/path" },
+        "validation_report": { "$ref": "#/$defs/path" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "management_view": {} }, "required": ["management_view"] },
+          "then": { "required": ["management_view_index"], "properties": { "management_view_index": {} } }
+        },
+        {
+          "if": { "properties": { "management_view_index": {} }, "required": ["management_view_index"] },
+          "then": { "required": ["management_view"], "properties": { "management_view": {} } }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,79}$" },
+    "path": { "type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$" },
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

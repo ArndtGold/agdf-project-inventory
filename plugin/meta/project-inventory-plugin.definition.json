@@ -1,0 +1,85 @@
+{
+  "schema_version": "1",
+  "id": "agdf-project-inventory",
+  "version": "0.1.0",
+  "display_name": "AGDF Project Inventory",
+  "description": "Evidence-first project inventory under AGDF-controlled scope.",
+  "long_description": "Create one bounded, evidence-first Project Inventory for exactly one validator-confirmed AGDF run and approved Inventory scope without creating delivery authority.",
+  "default_prompt": "Create a bounded project inventory for the approved decision context.",
+  "homepage": "https://agdf.iself.eu",
+  "repository": "https://github.com/ArndtGold/agdf-project-inventory",
+  "license": "Apache-2.0",
+  "ownership_marker": "AGDF-PROJECT-INVENTORY:0.1.0",
+  "skills": [
+    {
+      "slug": "project-inventory",
+      "path": "plugin/skills/project-inventory/SKILL.md"
+    }
+  ],
+  "resources": [
+    "plugin/skills/project-inventory/references/assessment-intake.md",
+    "plugin/skills/project-inventory/references/evidence-register.md",
+    "plugin/skills/project-inventory/references/findings-and-gaps-register.md",
+    "plugin/skills/project-inventory/references/inventory-report.md",
+    "plugin/skills/project-inventory/references/management-view.md"
+  ],
+  "schemas": [
+    "plugin/skills/project-inventory/assets/schemas/project-inventory-scope.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/inventory-run.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/assessment-intake.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/evidence-register.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/findings-register.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/report-index.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/management-view-index.schema.json",
+    "plugin/skills/project-inventory/assets/schemas/uat-record.schema.json"
+  ],
+  "scripts": [
+    "plugin/skills/project-inventory/scripts/project-inventory.mjs",
+    "plugin/skills/project-inventory/scripts/lib/agdf-bridge/authority-context.mjs",
+    "plugin/skills/project-inventory/scripts/lib/agdf-bridge/preflight.mjs",
+    "plugin/skills/project-inventory/scripts/lib/agdf-bridge/resolver.mjs",
+    "plugin/skills/project-inventory/scripts/lib/renderers/management-view.mjs",
+    "plugin/skills/project-inventory/scripts/lib/renderers/report.mjs",
+    "plugin/skills/project-inventory/scripts/lib/shared/config.mjs",
+    "plugin/skills/project-inventory/scripts/lib/shared/data.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/diagnostics.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/epistemic-state.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/generated-schema-validators.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/index.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/inventory-validator.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/path-boundary.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/question-requirements.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/safe-write.mjs",
+    "plugin/skills/project-inventory/scripts/lib/validator/schema-validator.mjs"
+  ],
+  "hosts": {
+    "codex": {
+      "package_type": "complete_local_plugin",
+      "manifest": ".codex-plugin/plugin.json",
+      "skill_name": "project-inventory",
+      "activation_scope": "repository",
+      "technical_permission_owner": "codex_host"
+    },
+    "claude": {
+      "package_type": "complete_local_plugin",
+      "manifest": ".claude-plugin/plugin.json",
+      "skill_name": "project-inventory",
+      "activation_scope": "project_or_user",
+      "technical_permission_owner": "claude_host"
+    },
+    "opencode": {
+      "package_type": "repository_projection",
+      "skill_name": "project-inventory",
+      "activation_scope": "repository",
+      "technical_permission_owner": "opencode_host"
+    }
+  },
+  "compatibility": {
+    "agdf": "0.13.5",
+    "codex": "0.145.0",
+    "claude_code": "2.1.193",
+    "opencode": "1.18.3",
+    "node": "22.22.3"
+  },
+  "public_distribution": false
+}
